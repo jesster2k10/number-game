@@ -10,6 +10,29 @@ enum ShortcutIdentifier: String {
     
 }
 
+import Foundation
+
+public class FTLogging {
+    
+    private var isDebug: Bool
+    
+    init() {
+        self.isDebug = false
+    }
+    
+    public func setup (isDebug: Bool) {
+        self.isDebug = isDebug
+        print("Project is Debug = \(isDebug)")
+    }
+    
+    public func FTLog<T> (value : T) {
+        if isDebug == true {
+            print(value)
+        }
+    }
+}
+
+
 extension NSTimer {
     
     // MARK: Schedule timers
@@ -278,20 +301,20 @@ extension NSUserDefaults {
     
     var highScore: Int {
         get {
-            print("High Score = " + integerForKey("highScore").description)
+            FTLogging().FTLog("High Score = " + integerForKey("highScore").description)
             return integerForKey("highScore")
         }
         set {
-            guard newValue > highScore else { print("\(newValue) ≤ \(highScore) Try again")
+            guard newValue > highScore else { FTLogging().FTLog("\(newValue) ≤ \(highScore) Try again")
                 return
             }
             setInteger(newValue, forKey: "highScore")
-            print("New High Score = \(highScore)")
+            FTLogging().FTLog("New High Score = \(highScore)")
         }
     }
     func resetHighScore() {
         removeObjectForKey("highScore")
-        print("removed object for key highScore")
+        FTLogging().FTLog("removed object for key highScore")
     }
     var highScoreDouble: Double {
         get {
@@ -302,12 +325,12 @@ extension NSUserDefaults {
                 return
             }
             setDouble(newValue, forKey: "highScoreDouble")
-            print("New High Score = \(highScoreDouble)")
+            FTLogging().FTLog("New High Score = \(highScoreDouble)")
         }
     }
     func resetHighScoreDouble() {
         removeObjectForKey("highScoreDouble")
-        print("removed object for key highScoreDouble")
+        FTLogging().FTLog("removed object for key highScoreDouble")
     }
 }
 

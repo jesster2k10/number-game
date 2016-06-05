@@ -56,8 +56,8 @@ public class GameKitHelper : NSObject, GKGameCenterControllerDelegate {
                 // 3 Game center is not enabled on the users device
                 self.gcEnabled = false
                 NSUserDefaults.standardUserDefaults().setBool(self.gcEnabled, forKey: "gcEnabled")
-                print("Local player could not be authenticated, disabling game center")
-                print(error)
+                FTLogging().FTLog("Local player could not be authenticated, disabling game center")
+                FTLogging().FTLog(error)
             }
             
         }
@@ -66,36 +66,40 @@ public class GameKitHelper : NSObject, GKGameCenterControllerDelegate {
     
     func checkIfAchivement() {
         let defaults = NSUserDefaults.standardUserDefaults()
-        let score = defaults.integerForKey("score")
+        let score = defaults.integerForKey("highScore")
         
-        switch score {
-        case 100:
-            reportAchievementIdentifier(k.GameCenter.Achivements.Points100, percent: 100, showsCompletionBanner: true)
-            break
-        case 500:
-            reportAchievementIdentifier(k.GameCenter.Achivements.Points500, percent: 100, showsCompletionBanner: true)
-            break
-        case 1000:
-            reportAchievementIdentifier(k.GameCenter.Achivements.Points1k, percent: 100, showsCompletionBanner: true)
-            break
-        case 10000:
-            reportAchievementIdentifier(k.GameCenter.Achivements.Points10k, percent: 100, showsCompletionBanner: true)
-            break
-        case 50000:
-            reportAchievementIdentifier(k.GameCenter.Achivements.Points50k, percent: 100, showsCompletionBanner: true)
-            break
-        case 100000:
-            reportAchievementIdentifier(k.GameCenter.Achivements.Points100k, percent: 100, showsCompletionBanner: true)
-            break
-        case 500000:
-            reportAchievementIdentifier(k.GameCenter.Achivements.Points500k, percent: 100, showsCompletionBanner: true)
-            break
-        case 1000000:
-            reportAchievementIdentifier(k.GameCenter.Achivements.Points1M, percent: 100, showsCompletionBanner: true)
-            break
-        default:
-            break
+        if score == 100 || score < 100 {
+           reportAchievementIdentifier(k.GameCenter.Achivements.Points100, percent: 100.0)
         }
+        
+        else if score == 500 || score < 500 {
+           reportAchievementIdentifier(k.GameCenter.Achivements.Points500, percent: 100.0)
+        }
+        
+        else if score == 1000 || score < 1000 {
+            reportAchievementIdentifier(k.GameCenter.Achivements.Points1k, percent: 100.0)
+        }
+        
+        else if score == 10000 || score < 10000 {
+            reportAchievementIdentifier(k.GameCenter.Achivements.Points10k, percent: 100.0)
+        }
+        
+        else if score == 50000 || score < 50000 {
+            reportAchievementIdentifier(k.GameCenter.Achivements.Points50k, percent: 100.0)
+        }
+        
+        else if score == 100000 || score < 10000 {
+            reportAchievementIdentifier(k.GameCenter.Achivements.Points100k, percent: 100.0)
+        }
+        
+        else if score == 500000 || score < 500000 {
+            reportAchievementIdentifier(k.GameCenter.Achivements.Points500k, percent: 100.0)
+        }
+        
+        else if score == 1000000 || score < 100000 {
+            reportAchievementIdentifier(k.GameCenter.Achivements.Points1M, percent: 100.0)
+        }
+
     }
     
     func showGameCenter(viewController: UIViewController, viewState: GKGameCenterViewControllerState) {
@@ -108,12 +112,12 @@ public class GameKitHelper : NSObject, GKGameCenterControllerDelegate {
 
     }
     
-    public func reportAchievementIdentifier(identifier: String, percent: Double, showsCompletionBanner banner: Bool = true) {
+    public func reportAchievementIdentifier(identifier: String, percent: Double) {
         let achievement = GKAchievement(identifier: identifier)
         
         if !achievementIsCompleted(identifier) {
             achievement.percentComplete = percent
-            achievement.showsCompletionBanner = banner
+            achievement.showsCompletionBanner = true
             
             GKAchievement.reportAchievements([achievement]) { (error) -> Void in
                 guard error == nil else {

@@ -25,7 +25,7 @@ class HomeScene: SKScene {
     var products    = [SKProduct]()
     
     override func didMoveToView(view: SKView) {
-        print("Home Scene did move to view")
+        FTLogging().FTLog("Home Scene did move to view")
         
         scaleMode = .AspectFill
         size = CGSizeMake(640, 960)
@@ -66,7 +66,7 @@ class HomeScene: SKScene {
         removeAds.position = CGPointMake(numberTap.position.x, leaderboard.position.y - 100)
         removeAds.zPosition = 2
         let def = NSUserDefaults.standardUserDefaults()
-        if let _ = def.objectForKey("hasRemovedAds") as? Bool { NSLog("all ads are gone") } else { addChild(removeAds) }
+        if let _ = def.objectForKey("hasRemovedAds") as? Bool { FTLogging().FTLog("all ads are gone") } else { addChild(removeAds) }
         
         gameMode.position = CGPointMake(play.position.x, play.position.y - 200)
         gameMode.zPosition = 2
@@ -122,10 +122,11 @@ class HomeScene: SKScene {
         if NSUserDefaults.standardUserDefaults().boolForKey("hasLaunchedOnce") {
             
             if let _ = def.objectForKey("hasRemovedAds") as? Bool {
-                NSLog("all ads are gone")
+                FTLogging().FTLog("all ads are gone")
                 
             } else {
                 
+                NSNotificationCenter.defaultCenter().postNotificationName("showAds", object: self)
                 Chartboost.showInterstitial(CBLocationHomeScreen)
             }
 
@@ -149,7 +150,7 @@ class HomeScene: SKScene {
             
             let alert = UIAlertController(title: "No Internet Connection", message: "Unable to purchase product. Please connect to the internet and try again", preferredStyle: .Alert)
             let action = UIAlertAction(title: "Cancel", style: .Cancel, handler: { (UIAlertAction) in
-                NSLog("Alert")
+                FTLogging().FTLog("Alert")
             })
             
             alert.addAction(action)
@@ -167,7 +168,7 @@ class HomeScene: SKScene {
             
             let alert = UIAlertController(title: "No Internet Connection", message: "Unable to purchase product. Please connect to the internet and try again", preferredStyle: .Alert)
             let action = UIAlertAction(title: "Cancel", style: .Cancel, handler: { (UIAlertAction) in
-                NSLog("Alert")
+                FTLogging().FTLog("Alert")
             })
             
             alert.addAction(action)
@@ -180,7 +181,7 @@ class HomeScene: SKScene {
         let productIdentifier = notification.object as! String
         for (_, product) in products.enumerate() {
             if product.productIdentifier == productIdentifier {
-                print("product purchased with id \(productIdentifier) & \(product.productIdentifier)")
+                FTLogging().FTLog("product purchased with id \(productIdentifier) & \(product.productIdentifier)")
                 if productIdentifier == Products.RemoveAds {
                     let defaults = NSUserDefaults.standardUserDefaults()
                     defaults.setBool(true, forKey: "hasRemovedAds")
@@ -216,7 +217,7 @@ class HomeScene: SKScene {
             };
             
             if play.containsPoint(location) {
-                print("play")
+                FTLogging().FTLog("play")
                 play.runAction(k.Sounds.blopAction1)
                 let gameScene = GameScene()
                 self.view?.presentScene(gameScene, transition: SKTransition.fadeWithColor(UIColor(rgba: "#434343"), duration: 1))
@@ -235,12 +236,12 @@ class HomeScene: SKScene {
             }
             
             if like.containsPoint(location) {
-                print("like")
+                FTLogging().FTLog("like")
                 SocialNetwork.Facebook.openPage()
             }
             
             if favourite.containsPoint(location) {
-                print("favourite")
+                FTLogging().FTLog("favourite")
                 let iTunesBaseUrl = "number-tap!/id1097322101?ls=1&mt=8"
                 let url = NSURL(string: "itms://itunes.apple.com/us/app/" + iTunesBaseUrl)
                 
@@ -252,18 +253,18 @@ class HomeScene: SKScene {
             }
             
             if leaderboard.containsPoint(location) {
-                print("leaderboard")
+                FTLogging().FTLog("leaderboard")
                 GameKitHelper.sharedGameKitHelper.showGameCenter((view?.window?.rootViewController)!, viewState: .Leaderboards)
             }
             
             if removeAds.containsPoint(location) {
-                print("remove ads")
+                FTLogging().FTLog("remove ads")
                 removeAds.runAction(k.Sounds.blopAction1)
                 purchaseProduct(0)
             }
             
             if sound.containsPoint(location) {
-                print("sound")
+                FTLogging().FTLog("sound")
                 sound.runAction(k.Sounds.blopAction1)
                 var touchSound = 0
                 
@@ -291,10 +292,10 @@ class HomeScene: SKScene {
         
         if isSoundEnabled {
             node!.runAction(soundAction, completion: {
-                print("\n Played sound with file named \r\n \(sound) \n")
+                FTLogging().FTLog("\n Played sound with file named \r\n \(sound) \n")
             })
         } else {
-            print("\n Sound is disabled \n")
+            FTLogging().FTLog("\n Sound is disabled \n")
         }
     }
     

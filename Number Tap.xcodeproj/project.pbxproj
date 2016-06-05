@@ -10,7 +10,6 @@
 		5F212FBA1CCC80FD009174EB /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F212FB91CCC80FD009174EB /* ReplayKit.framework */; };
 		5F229D431CAACD1700A4C014 /* AirshipKit in Sources */ = {isa = PBXBuildFile; fileRef = 5F57F6901CA17DCF004FCA64 /* AirshipKit */; };
 		5F229D441CAACD1900A4C014 /* Airship in Sources */ = {isa = PBXBuildFile; fileRef = 5F57F68E1CA17D27004FCA64 /* Airship */; };
-		5F2323AD1CF8FE3200FF5AEE /* AdColony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B4131CE5FF9800F191DA /* AdColony.framework */; };
 		5F33683F1CA98BEC00A2DE2C /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F3368351CA98BEC00A2DE2C /* Montserrat-Bold.otf */; };
 		5F3368421CA98BEC00A2DE2C /* Montserrat-Hairline.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F3368381CA98BEC00A2DE2C /* Montserrat-Hairline.otf */; };
 		5F3368431CA98BEC00A2DE2C /* Montserrat-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F3368391CA98BEC00A2DE2C /* Montserrat-Light.otf */; };
@@ -66,7 +65,7 @@
 		5FDAFA811CA8157E000CE82E /* ProgressNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAFA7B1CA8157E000CE82E /* ProgressNode.swift */; };
 		5FDAFA821CA8157E000CE82E /* Utilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAFA7C1CA8157E000CE82E /* Utilites.swift */; };
 		5FDAFA851CA81646000CE82E /* AnimatedScoreLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAFA841CA81646000CE82E /* AnimatedScoreLabel.m */; };
-		5FF673191D03ED0100CEE1E5 /* FTLogging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF673181D03ED0100CEE1E5 /* FTLogging.framework */; };
+		5FF6731B1D0405E900CEE1E5 /* AdColony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B4131CE5FF9800F191DA /* AdColony.framework */; };
 		5FF98C771CBA99A7003B6893 /* TCProgressBarNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF98C761CBA99A7003B6893 /* TCProgressBarNode.m */; };
 		5FF98C7A1CBAA4B2003B6893 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF98C791CBAA4B2003B6893 /* Default-Landscape@2x~ipad.png */; };
 		5FF98C7C1CBAA4BE003B6893 /* Default-portrait@3x~iphone6+.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF98C7B1CBAA4BE003B6893 /* Default-portrait@3x~iphone6+.png */; };
@@ -190,7 +189,6 @@
 		5FDAFA7C1CA8157E000CE82E /* Utilites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilites.swift; sourceTree = "<group>"; };
 		5FDAFA831CA81646000CE82E /* AnimatedScoreLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedScoreLabel.h; sourceTree = "<group>"; };
 		5FDAFA841CA81646000CE82E /* AnimatedScoreLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedScoreLabel.m; sourceTree = "<group>"; };
-		5FF673181D03ED0100CEE1E5 /* FTLogging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FTLogging.framework; path = "Number Tap/FTLogging.framework"; sourceTree = "<group>"; };
 		5FF98C751CBA99A7003B6893 /* TCProgressBarNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCProgressBarNode.h; sourceTree = "<group>"; };
 		5FF98C761CBA99A7003B6893 /* TCProgressBarNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCProgressBarNode.m; sourceTree = "<group>"; };
 		5FF98C791CBAA4B2003B6893 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
@@ -219,15 +217,14 @@
 				5F78B4221CE610BC00F191DA /* EventKit.framework in Frameworks */,
 				5F78B4201CE610B200F191DA /* CoreTelephony.framework in Frameworks */,
 				5F78B41E1CE610A800F191DA /* CoreMedia.framework in Frameworks */,
+				5FF6731B1D0405E900CEE1E5 /* AdColony.framework in Frameworks */,
 				5F8BFDDA1CA73C4700F90C43 /* CoreGraphics.framework in Frameworks */,
-				5FF673191D03ED0100CEE1E5 /* FTLogging.framework in Frameworks */,
 				5F78B41C1CE6108E00F191DA /* AVFoundation.framework in Frameworks */,
 				5F78B41A1CE6106C00F191DA /* AudioToolbox.framework in Frameworks */,
 				5F78B4161CE6103400F191DA /* libz.1.2.5.tbd in Frameworks */,
 				5F78B4181CE6105A00F191DA /* AdSupport.framework in Frameworks */,
 				5F212FBA1CCC80FD009174EB /* ReplayKit.framework in Frameworks */,
 				5F8075161CBA790B00D7A9BB /* PermissionScope.framework in Frameworks */,
-				5F2323AD1CF8FE3200FF5AEE /* AdColony.framework in Frameworks */,
 				5F675A3B1CB812E400CF172C /* iAd.framework in Frameworks */,
 				5F80751A1CBA7E4F00D7A9BB /* Chartboost.framework in Frameworks */,
 				5F8BFDC91CA6B81600F90C43 /* GameKit.framework in Frameworks */,
@@ -423,7 +420,6 @@
 		FFEDA6FCA3FF3DAAE4142357 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5FF673181D03ED0100CEE1E5 /* FTLogging.framework */,
 				5F78B42D1CE6113700F191DA /* WebKit.framework */,
 				5F78B42B1CE6110400F191DA /* Social.framework */,
 				5F78B4291CE610ED00F191DA /* QuartzCore.framework */,
@@ -887,6 +883,8 @@
 					Tap,
 					"$(PROJECT_DIR)/Number",
 					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Number Tap/Info.plist";
@@ -959,6 +957,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Number",
+					Tap,
 					"$(PROJECT_DIR)/Number",
 					Tap,
 					"$(PROJECT_DIR)/Number",

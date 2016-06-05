@@ -55,11 +55,30 @@ class GameViewController: UIViewController, ADBannerViewDelegate {
         })
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.checkIfAds), name: "areAdsGone", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.hideAds), name: "hideAds", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.showAds), name: "showAds", object: nil)
     }
+    
+    func hideAds (notification : NSNotification) {
+        UIView.animateWithDuration(1.0) { () -> Void in
+            
+            self.bannerView.alpha = 0
+        }
+
+    }
+    
+    func showAds (notification : NSNotification) {
+        UIView.animateWithDuration(1.0) { () -> Void in
+            
+            self.bannerView.alpha = 1
+        }
+        
+    }
+    
     
     func checkIfAds (notification: NSNotification) {
         if notification.name == "areAdsGone" {
-            print("Ads are gone")
+            FTLogging().FTLog("Ads are gone")
             
             UIView.animateWithDuration(1.0) { () -> Void in
                 
@@ -75,7 +94,7 @@ class GameViewController: UIViewController, ADBannerViewDelegate {
         let def = NSUserDefaults.standardUserDefaults()
         if let _ = def.objectForKey("hasRemovedAds") as? Bool {
             
-            NSLog("all ads are gone")
+            FTLogging().FTLog("all ads are gone")
         } else {
             
             bannerView = ADBannerView(adType: .Banner)
@@ -93,7 +112,7 @@ class GameViewController: UIViewController, ADBannerViewDelegate {
     
     func bannerViewDidLoadAd(banner: ADBannerView!) {
 
-        NSLog("Ad Received")
+        FTLogging().FTLog("Ad Received")
         UIView.animateWithDuration(1.0) { () -> Void in
             
             self.bannerView.alpha = 1.0

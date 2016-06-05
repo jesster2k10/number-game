@@ -41,10 +41,10 @@ public class IAPHelper : NSObject  {
             let purchased = NSUserDefaults.standardUserDefaults().boolForKey(productIdentifier)
             if purchased {
                 purchasedProductIdentifiers.insert(productIdentifier)
-                print("Previously purchased: \(productIdentifier)")
+                FTLogging().FTLog("Previously purchased: \(productIdentifier)")
             }
             else {
-                print("Not purchased: \(productIdentifier)")
+                FTLogging().FTLog("Not purchased: \(productIdentifier)")
             }
         }
         super.init()
@@ -61,7 +61,7 @@ public class IAPHelper : NSObject  {
     
     /// Initiates purchase of a product.
     public func purchaseProduct(product: SKProduct) {
-        print("Buying \(product.productIdentifier)...")
+        FTLogging().FTLog("Buying \(product.productIdentifier)...")
         let payment = SKPayment(product: product)
         SKPaymentQueue.defaultQueue().addPayment(payment)
     }
@@ -87,20 +87,20 @@ public class IAPHelper : NSObject  {
 
 extension IAPHelper: SKProductsRequestDelegate {
     public func productsRequest(request: SKProductsRequest, didReceiveResponse response: SKProductsResponse) {
-        print("Loaded list of products...")
+        FTLogging().FTLog("Loaded list of products...")
         let products = response.products
         completionHandler?(success: true, products: products)
         clearRequest()
         
         // debug printing
         for p in products {
-            print("Found product: \(p.productIdentifier) \(p.localizedTitle) \(p.price.floatValue)")
+            FTLogging().FTLog("Found product: \(p.productIdentifier) \(p.localizedTitle) \(p.price.floatValue)")
         }
     }
     
     public func request(request: SKRequest, didFailWithError error: NSError) {
-        print("Failed to load list of products.")
-        print("Error: \(error)")
+        FTLogging().FTLog("Failed to load list of products.")
+        FTLogging().FTLog("Error: \(error)")
         clearRequest()
     }
     
@@ -136,14 +136,14 @@ extension IAPHelper: SKPaymentTransactionObserver {
     }
     
     private func completeTransaction(transaction: SKPaymentTransaction) {
-        print("completeTransaction...")
+        FTLogging().FTLog("completeTransaction...")
         provideContentForProductIdentifier(transaction.payment.productIdentifier)
         SKPaymentQueue.defaultQueue().finishTransaction(transaction)
     }
     
     private func restoreTransaction(transaction: SKPaymentTransaction) {
         let productIdentifier = transaction.originalTransaction!.payment.productIdentifier
-        print("restoreTransaction... \(productIdentifier)")
+        FTLogging().FTLog("restoreTransaction... \(productIdentifier)")
         provideContentForProductIdentifier(productIdentifier)
         SKPaymentQueue.defaultQueue().finishTransaction(transaction)
     }
@@ -157,9 +157,9 @@ extension IAPHelper: SKPaymentTransactionObserver {
     }
     
     private func failedTransaction(transaction: SKPaymentTransaction) {
-        print("failedTransaction...")
+        FTLogging().FTLog("failedTransaction...")
         if transaction.error!.code != SKErrorCode.PaymentCancelled .rawValue{
-            print("Transaction error: \(transaction.error!.localizedDescription)")
+            FTLogging().FTLog("Transaction error: \(transaction.error!.localizedDescription)")
         }
         SKPaymentQueue.defaultQueue().finishTransaction(transaction)
     }

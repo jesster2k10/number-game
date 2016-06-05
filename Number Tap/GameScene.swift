@@ -257,6 +257,9 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
         self.numberLabel.runAction(SKAction.moveToY(90, duration: 1, delay: 0.5, usingSpringWithDamping: 0.2, initialSpringVelocity: 0), completion: {
         })
         
+        if let _ = NSUserDefaults.standardUserDefaults().objectForKey("hasRemovedAds") as? Bool {
+             NSNotificationCenter.defaultCenter().postNotificationName("hideAds", object: nil)
+        }
         
         if mode != .Memory {
             self.tapOnLabel.fontColor = UIColor.whiteColor()
@@ -332,7 +335,7 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
             
             currentMode = .Timed
             
-            print("\n current game mode is Times \n")
+            FTLogging().FTLog("\n current game mode is Times \n")
             
             let timerSpace = SKTexture(imageNamed: "timerSpace")
             self.circularTimer.position = CGPointMake(self.numberBox4.position.x, 850)
@@ -388,7 +391,7 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
                 box.scale()
             }
             
-            print("\n current game mode is Endless \n")
+            FTLogging().FTLog("\n current game mode is Endless \n")
             
             let timerSpace = SKTexture(imageNamed: "timerSpace")
             self.circularTimer.position = CGPointMake(self.numberBox4.position.x, 850)
@@ -565,18 +568,17 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
         
         longestTimer.invalidate()
         
-        GameKitHelper.sharedGameKitHelper.reportLeaderboardIdentifier(k.GameCenter.Leaderboard.TopScorers, score: score)
+        GameKitHelper.sharedGameKitHelper.reportLeaderboardIdentifier(k.GameCenter.Leaderboard.TopScorers, score: numbersTapped)
         GameKitHelper.sharedGameKitHelper.reportLeaderboardIdentifier(k.GameCenter.Leaderboard.LongestRound, score: longestTimeCounter)
+        GameKitHelper.sharedGameKitHelper.checkIfAchivement()
         
-        let launchedBefore = NSUserDefaults.standardUserDefaults().boolForKey("launchedBefore")
-        
-        if launchedBefore  {
-            print("Not first launch.")
+        /*if launchedBefore  {
+            FTLogging().FTLog("Not first launch.")
             let defaults = NSUserDefaults.standardUserDefaults()
             defaults.setInteger(score, forKey: "score")
         }
         else {
-            print("First launch, setting NSUserDefault.")
+            FTLogging().FTLog("First launch, setting NSUserDefault.")
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "launchedBefore")
             
             let defaults = NSUserDefaults.standardUserDefaults()
@@ -584,11 +586,11 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
             let newScore = oldScore + score
             
             defaults.setInteger(newScore, forKey: "score")
-        }
+        }*/
         
         let def = NSUserDefaults.standardUserDefaults()
         if let _ = def.objectForKey("hasRemovedAds") as? Bool {
-            NSLog("all ads are gone")
+            FTLogging().FTLog("all ads are gone")
             
         } else {
             
@@ -603,7 +605,7 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
             
             hasGameEnded = true
         
-            NSUserDefaults.standardUserDefaults().highScore = score
+            NSUserDefaults.standardUserDefaults().highScore = numbersTapped
             
             
             for box in boxArray {
@@ -699,7 +701,7 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
             }
             
             if self.children.contains(home) {
-                print("hskjfldk;sjfkldsjf;lksdjfkldsjfgklsdjglk \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+                FTLogging().FTLog("hskjfldk;sjfkldsjf;lksdjfkldsjfgklsdjglk \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
             }
       
             let gameOverText = SKLabelNode(fontNamed: "Montserrat-SemiBold")
@@ -889,7 +891,7 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
         let productIdentifier = notification.object as! String
         for (_, product) in products.enumerate() {
             if product.productIdentifier == productIdentifier {
-                print("product purchased with id \(productIdentifier) & \(product.productIdentifier)")
+                FTLogging().FTLog("product purchased with id \(productIdentifier) & \(product.productIdentifier)")
                 if productIdentifier == Products.RemoveAds {
                     let defaults = NSUserDefaults.standardUserDefaults()
                     defaults.setBool(true, forKey: "hasRemovedAds")
@@ -919,7 +921,7 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
         
         if hasGameEnded {
             if gameCenter.containsPoint(location) {
-                print("game center")
+                FTLogging().FTLog("game center")
                 
                 gameCenter.runAction(k.Sounds.blopAction1)
                 
@@ -928,14 +930,14 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
             }
             
             if home.containsPoint(location) {
-                print("home")
+                FTLogging().FTLog("home")
                 let homeScene = HomeScene()
                 self.view?.presentScene(homeScene, transition: SKTransition.fadeWithColor(UIColor(rgba: "#434343"), duration: 2))
                 
             };
             
             if sound.containsPoint(location) {
-                print("sound")
+                FTLogging().FTLog("sound")
                 sound.runAction(k.Sounds.blopAction1)
                 var touchSound = 0
                 
@@ -970,11 +972,11 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
             }
             
             if share.containsPoint(location) {
-                print("share")
+                FTLogging().FTLog("share")
                 
                 share.runAction(k.Sounds.blopAction1)
                 
-                let textToShare = "I just scored \(score) points in a FREE game called 'Number Tap' that's made by a 12 YEAR OLD! Download Today!"
+                let textToShare = "I just tapped \(numbersTapped) tiles in a FREE game called 'Number Tap' that's made by a 13-YEAR-OLD! Download Today!"
                 
                 if let myWebsite = NSURL(string: "https://itunes.apple.com/us/app/number-tap!/id1097322101?ls=1&mt=8") {
                     let objectsToShare = [textToShare, myWebsite]
@@ -985,16 +987,17 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
                     
                     let vC = self.view?.window?.rootViewController
                     vC!.presentViewController(activityVC, animated: true, completion: nil)
+                    
                 }
             }
             if removeAds.containsPoint(location) {
-                print("remove ads")
+                FTLogging().FTLog("remove ads")
                 removeAds.runAction(k.Sounds.blopAction1)
                 purchaseProduct(0)
             }
             
             if beginGame.containsPoint(location) {
-                print("begin game")
+                FTLogging().FTLog("begin game")
                 beginGame.runAction(k.Sounds.blopAction1)
                 clearScene()
             }
@@ -1002,22 +1005,22 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
         }
         
         if home.containsPoint(location) {
-            print("home")
+            FTLogging().FTLog("home")
             let homeScene = HomeScene()
             self.view?.presentScene(homeScene, transition: SKTransition.fadeWithColor(UIColor(rgba: "#434343"), duration: 2))
         };
         
         if pause.containsPoint(location) {
-            print("pause")
+            FTLogging().FTLog("pause")
         };
         
         if record.containsPoint(location) {
-            print("record")
+            FTLogging().FTLog("record")
             startRecording()
         };
         
         if replay.containsPoint(location) {
-            print("replay")
+            FTLogging().FTLog("replay")
             resetScene()
         };
         
@@ -1111,10 +1114,10 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
                     playSound(fileName: k.Sounds.blop01, onSprite: box)
                     
                     if box.indexs == number {
-                        print ("point")
+                        FTLogging().FTLog ("point")
                         point()
                     } else {
-                        print("loose")
+                        FTLogging().FTLog("loose")
                         loose()
                     }
                     
@@ -1171,7 +1174,7 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
             let vc = self.view?.window?.rootViewController
             let alert = UIAlertController(title: "Recording Unavaliable", message: "Your device does not support recording!", preferredStyle: .Alert) // 1
             let firstAction = UIAlertAction(title: "Ok", style: .Default) { (alert: UIAlertAction!) -> Void in
-                NSLog("You pressed button one")
+                FTLogging().FTLog("You pressed button one")
            }
             
             alert.addAction(firstAction) // 4
@@ -1197,10 +1200,10 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
         
         if isSoundEnabled {
             node!.runAction(soundAction, completion: { 
-                print("\n Played sound with file named \r\n \(sound) \n")
+                FTLogging().FTLog("\n Played sound with file named \r\n \(sound) \n")
             })
         } else {
-            print("\n Sound is disabled \n")
+            FTLogging().FTLog("\n Sound is disabled \n")
         }
     }
    

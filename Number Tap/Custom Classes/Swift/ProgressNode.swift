@@ -215,7 +215,7 @@ class CountdownNode: SKSpriteNode {
     }
     
     func counterUpdate () {
-        print("update by -1")
+        FTLogging().FTLog("update by -1")
         if counter < 0 {
         counter -= 1
         counterText.text = "\(counter)"

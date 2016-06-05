@@ -59,6 +59,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ChartboostDelegate {
         Fabric.sharedSDK().debug = true
         Fabric.with([Crashlytics.self])
         
+        FTLogging().setup(true)
+        
         return true
     }
 
@@ -104,6 +106,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ChartboostDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        
+        for key in Array(NSUserDefaults.standardUserDefaults().dictionaryRepresentation().keys) {
+            NSUserDefaults.standardUserDefaults().removeObjectForKey(key)
+        }
+
     }
     
     //MARK: Notifications
