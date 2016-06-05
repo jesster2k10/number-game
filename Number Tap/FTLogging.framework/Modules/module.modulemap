@@ -1,0 +1,10 @@
+framework module FTLogging {
+  umbrella header "FTLogging.h"
+
+  export *
+  module * { export * }
+}
+
+module FTLogging.Swift {
+    header "FTLogging-Swift.h"
+}

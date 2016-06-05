@@ -7,6 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F212FBA1CCC80FD009174EB /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F212FB91CCC80FD009174EB /* ReplayKit.framework */; };
+		5F229D431CAACD1700A4C014 /* AirshipKit in Sources */ = {isa = PBXBuildFile; fileRef = 5F57F6901CA17DCF004FCA64 /* AirshipKit */; };
+		5F229D441CAACD1900A4C014 /* Airship in Sources */ = {isa = PBXBuildFile; fileRef = 5F57F68E1CA17D27004FCA64 /* Airship */; };
+		5F2323AD1CF8FE3200FF5AEE /* AdColony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B4131CE5FF9800F191DA /* AdColony.framework */; };
+		5F33683F1CA98BEC00A2DE2C /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F3368351CA98BEC00A2DE2C /* Montserrat-Bold.otf */; };
+		5F3368421CA98BEC00A2DE2C /* Montserrat-Hairline.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F3368381CA98BEC00A2DE2C /* Montserrat-Hairline.otf */; };
+		5F3368431CA98BEC00A2DE2C /* Montserrat-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F3368391CA98BEC00A2DE2C /* Montserrat-Light.otf */; };
+		5F3368441CA98BEC00A2DE2C /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F33683A1CA98BEC00A2DE2C /* Montserrat-Regular.otf */; };
+		5F3368451CA98BEC00A2DE2C /* Montserrat-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F33683B1CA98BEC00A2DE2C /* Montserrat-SemiBold.otf */; };
+		5F57F6981CA17DF8004FCA64 /* AirshipKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F57F6971CA17DD5004FCA64 /* AirshipKit.framework */; };
+		5F57F6991CA17DF8004FCA64 /* AirshipKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5F57F6971CA17DD5004FCA64 /* AirshipKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5F57F69E1CA17E30004FCA64 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F57F69D1CA17E30004FCA64 /* AirshipConfig.plist */; };
+		5F57F6A01CA1806D004FCA64 /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F57F69F1CA1806D004FCA64 /* HomeScene.swift */; };
+		5F675A3B1CB812E400CF172C /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F675A3A1CB812E400CF172C /* iAd.framework */; };
+		5F675A3E1CB82A9600CF172C /* blipBlop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5F675A3D1CB82A9600CF172C /* blipBlop.wav */; };
+		5F69E51F1CB13F4800D7D01F /* GameModeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F69E51E1CB13F4800D7D01F /* GameModeScene.swift */; };
+		5F78B4161CE6103400F191DA /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B4151CE6103400F191DA /* libz.1.2.5.tbd */; settings = {ATTRIBUTES = (Weak, ); }; };
+		5F78B4181CE6105A00F191DA /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B4171CE6105A00F191DA /* AdSupport.framework */; };
+		5F78B41A1CE6106C00F191DA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B4191CE6106C00F191DA /* AudioToolbox.framework */; };
+		5F78B41C1CE6108E00F191DA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B41B1CE6108E00F191DA /* AVFoundation.framework */; };
+		5F78B41E1CE610A800F191DA /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B41D1CE610A800F191DA /* CoreMedia.framework */; };
+		5F78B4201CE610B200F191DA /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B41F1CE610B200F191DA /* CoreTelephony.framework */; };
+		5F78B4221CE610BC00F191DA /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B4211CE610BC00F191DA /* EventKit.framework */; };
+		5F78B4241CE610C600F191DA /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B4231CE610C600F191DA /* EventKitUI.framework */; };
+		5F78B4261CE610CE00F191DA /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B4251CE610CE00F191DA /* MediaPlayer.framework */; };
+		5F78B4281CE610DC00F191DA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B4271CE610DC00F191DA /* MessageUI.framework */; };
+		5F78B42A1CE610ED00F191DA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B4291CE610ED00F191DA /* QuartzCore.framework */; };
+		5F78B42C1CE6110400F191DA /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B42B1CE6110400F191DA /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		5F78B42E1CE6113700F191DA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B42D1CE6113700F191DA /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		5F8075161CBA790B00D7A9BB /* PermissionScope.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F8075151CBA790B00D7A9BB /* PermissionScope.framework */; };
+		5F80751A1CBA7E4F00D7A9BB /* Chartboost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F8075181CBA7DA100D7A9BB /* Chartboost.framework */; };
+		5F8BFDC91CA6B81600F90C43 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F8BFDC81CA6B81600F90C43 /* GameKit.framework */; };
+		5F8BFDCB1CA6B81C00F90C43 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F8BFDCA1CA6B81C00F90C43 /* SystemConfiguration.framework */; };
+		5F8BFDD11CA710C700F90C43 /* iphone5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F8BFDD01CA710C700F90C43 /* iphone5.jpg */; };
+		5F8BFDD81CA73C3A00F90C43 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F8BFDD71CA73C3A00F90C43 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		5F8BFDDA1CA73C4700F90C43 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F8BFDD91CA73C4700F90C43 /* CoreGraphics.framework */; };
+		5FC042261CA8801A00264482 /* GameKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC042251CA8801A00264482 /* GameKitHelper.swift */; };
+		5FC98C011CAB21A7000ABDD0 /* blop01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5FC98BFF1CAB21A7000ABDD0 /* blop01.wav */; };
+		5FC98C021CAB21A7000ABDD0 /* blop02.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5FC98C001CAB21A7000ABDD0 /* blop02.wav */; };
+		5FC98C031CAB2819000ABDD0 /* libUAirship-7.0.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F229D451CAACE3600A4C014 /* libUAirship-7.0.2.a */; };
+		5FC98C051CAB283A000ABDD0 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FC98C041CAB283A000ABDD0 /* libz.tbd */; };
+		5FC98C071CAB2840000ABDD0 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FC98C061CAB2840000ABDD0 /* libsqlite3.tbd */; };
+		5FC98C091CAB296F000ABDD0 /* AirshipResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5FC98C081CAB296F000ABDD0 /* AirshipResources.bundle */; };
 		5FDAF83D1C94C15C009D815A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAF83C1C94C15C009D815A /* AppDelegate.swift */; };
 		5FDAF83F1C94C15C009D815A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5FDAF83E1C94C15C009D815A /* GameScene.sks */; };
 		5FDAF8411C94C15C009D815A /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAF8401C94C15C009D815A /* GameScene.swift */; };
@@ -16,9 +59,37 @@
 		5FDAF84B1C94C15C009D815A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FDAF8491C94C15C009D815A /* LaunchScreen.storyboard */; };
 		5FDAF8561C94C15D009D815A /* Number_TapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAF8551C94C15D009D815A /* Number_TapTests.swift */; };
 		5FDAF8611C94C15D009D815A /* Number_TapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAF8601C94C15D009D815A /* Number_TapUITests.swift */; };
+		5FDAFA7D1CA8157E000CE82E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAFA771CA8157E000CE82E /* Constants.swift */; };
+		5FDAFA7E1CA8157E000CE82E /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAFA781CA8157E000CE82E /* IAPHelper.swift */; };
+		5FDAFA7F1CA8157E000CE82E /* NTProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAFA791CA8157E000CE82E /* NTProgressBar.swift */; };
+		5FDAFA801CA8157E000CE82E /* NumberBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAFA7A1CA8157E000CE82E /* NumberBox.swift */; };
+		5FDAFA811CA8157E000CE82E /* ProgressNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAFA7B1CA8157E000CE82E /* ProgressNode.swift */; };
+		5FDAFA821CA8157E000CE82E /* Utilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAFA7C1CA8157E000CE82E /* Utilites.swift */; };
+		5FDAFA851CA81646000CE82E /* AnimatedScoreLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAFA841CA81646000CE82E /* AnimatedScoreLabel.m */; };
+		5FF673191D03ED0100CEE1E5 /* FTLogging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF673181D03ED0100CEE1E5 /* FTLogging.framework */; };
+		5FF98C771CBA99A7003B6893 /* TCProgressBarNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF98C761CBA99A7003B6893 /* TCProgressBarNode.m */; };
+		5FF98C7A1CBAA4B2003B6893 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF98C791CBAA4B2003B6893 /* Default-Landscape@2x~ipad.png */; };
+		5FF98C7C1CBAA4BE003B6893 /* Default-portrait@3x~iphone6+.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF98C7B1CBAA4BE003B6893 /* Default-portrait@3x~iphone6+.png */; };
+		5FF98C7F1CBABEF8003B6893 /* TCProgressTimerForegroundCropNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF98C7E1CBABEF8003B6893 /* TCProgressTimerForegroundCropNode.m */; };
+		5FF98C821CBABF11003B6893 /* TCProgressTimerNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF98C811CBABF11003B6893 /* TCProgressTimerNode.m */; };
+		8B5777FBA84E6E3025243E91 /* Pods_Number_Tap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A86360AF49FB2156EAFF0172 /* Pods_Number_Tap.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5F57F6961CA17DD5004FCA64 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5F57F6921CA17DD2004FCA64 /* AirshipKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 494DD9571B0EB677009C134E;
+			remoteInfo = AirshipKit;
+		};
+		5F57F69A1CA17DF8004FCA64 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5F57F6921CA17DD2004FCA64 /* AirshipKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 494DD9561B0EB677009C134E;
+			remoteInfo = AirshipKit;
+		};
 		5FDAF8521C94C15D009D815A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5FDAF8311C94C15C009D815A /* Project object */;
@@ -35,7 +106,67 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		5F57F69C1CA17DF8004FCA64 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5F57F6991CA17DF8004FCA64 /* AirshipKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		441A032841553DD3FAE27A0D /* Pods-Number Tap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Number Tap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Number Tap/Pods-Number Tap.debug.xcconfig"; sourceTree = "<group>"; };
+		5F1D0F0D1C996244002E868D /* Number Tap-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Number Tap-Bridging-Header.h"; sourceTree = "<group>"; };
+		5F212FB91CCC80FD009174EB /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
+		5F229D451CAACE3600A4C014 /* libUAirship-7.0.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libUAirship-7.0.2.a"; path = "Airship/libUAirship-7.0.2.a"; sourceTree = "<group>"; };
+		5F229D471CAACE3600A4C014 /* libUAirship-7.0.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libUAirship-7.0.2.a"; path = "Airship/libUAirship-7.0.2.a"; sourceTree = "<group>"; };
+		5F3368351CA98BEC00A2DE2C /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.otf"; sourceTree = "<group>"; };
+		5F3368381CA98BEC00A2DE2C /* Montserrat-Hairline.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Hairline.otf"; sourceTree = "<group>"; };
+		5F3368391CA98BEC00A2DE2C /* Montserrat-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.otf"; sourceTree = "<group>"; };
+		5F33683A1CA98BEC00A2DE2C /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.otf"; sourceTree = "<group>"; };
+		5F33683B1CA98BEC00A2DE2C /* Montserrat-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.otf"; sourceTree = "<group>"; };
+		5F57F68E1CA17D27004FCA64 /* Airship */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Airship; sourceTree = "<group>"; };
+		5F57F6901CA17DCF004FCA64 /* AirshipKit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AirshipKit; sourceTree = "<group>"; };
+		5F57F6921CA17DD2004FCA64 /* AirshipKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AirshipKit.xcodeproj; path = "../../../../../../Downloads/libUAirship-7.0.2/AirshipKit/AirshipKit.xcodeproj"; sourceTree = "<group>"; };
+		5F57F69D1CA17E30004FCA64 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
+		5F57F69F1CA1806D004FCA64 /* HomeScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScene.swift; sourceTree = "<group>"; };
+		5F675A3A1CB812E400CF172C /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		5F675A3D1CB82A9600CF172C /* blipBlop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blipBlop.wav; sourceTree = "<group>"; };
+		5F69E51E1CB13F4800D7D01F /* GameModeScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModeScene.swift; sourceTree = "<group>"; };
+		5F78B4131CE5FF9800F191DA /* AdColony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdColony.framework; path = "Number Tap/AdColony.framework"; sourceTree = "<group>"; };
+		5F78B4151CE6103400F191DA /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
+		5F78B4171CE6105A00F191DA /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		5F78B4191CE6106C00F191DA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		5F78B41B1CE6108E00F191DA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		5F78B41D1CE610A800F191DA /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		5F78B41F1CE610B200F191DA /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		5F78B4211CE610BC00F191DA /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		5F78B4231CE610C600F191DA /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		5F78B4251CE610CE00F191DA /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		5F78B4271CE610DC00F191DA /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		5F78B4291CE610ED00F191DA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5F78B42B1CE6110400F191DA /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		5F78B42D1CE6113700F191DA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		5F8075151CBA790B00D7A9BB /* PermissionScope.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PermissionScope.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/Number_Tap-fkvgqobfztaekfbqqnsjtkfkoxhv/Build/Products/Debug-iphoneos/PermissionScope.framework"; sourceTree = "<group>"; };
+		5F8075181CBA7DA100D7A9BB /* Chartboost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Chartboost.framework; sourceTree = "<group>"; };
+		5F8BFDC81CA6B81600F90C43 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		5F8BFDCA1CA6B81C00F90C43 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		5F8BFDD01CA710C700F90C43 /* iphone5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iphone5.jpg; sourceTree = "<group>"; };
+		5F8BFDD71CA73C3A00F90C43 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		5F8BFDD91CA73C4700F90C43 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5FC042251CA8801A00264482 /* GameKitHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameKitHelper.swift; sourceTree = "<group>"; };
+		5FC98BFF1CAB21A7000ABDD0 /* blop01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blop01.wav; sourceTree = "<group>"; };
+		5FC98C001CAB21A7000ABDD0 /* blop02.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blop02.wav; sourceTree = "<group>"; };
+		5FC98C041CAB283A000ABDD0 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		5FC98C061CAB2840000ABDD0 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		5FC98C081CAB296F000ABDD0 /* AirshipResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AirshipResources.bundle; sourceTree = "<group>"; };
+		5FD758251CB92E1700C1E1A0 /* STNotificationHelper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = STNotificationHelper.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/Number_Tap-fkvgqobfztaekfbqqnsjtkfkoxhv/Build/Products/Debug-iphoneos/STNotificationHelper.framework"; sourceTree = "<group>"; };
 		5FDAF8391C94C15C009D815A /* Number Tap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Number Tap.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FDAF83C1C94C15C009D815A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FDAF83E1C94C15C009D815A /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -51,6 +182,25 @@
 		5FDAF85C1C94C15D009D815A /* Number TapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Number TapUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FDAF8601C94C15D009D815A /* Number_TapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number_TapUITests.swift; sourceTree = "<group>"; };
 		5FDAF8621C94C15D009D815A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FDAFA771CA8157E000CE82E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5FDAFA781CA8157E000CE82E /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
+		5FDAFA791CA8157E000CE82E /* NTProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTProgressBar.swift; sourceTree = "<group>"; };
+		5FDAFA7A1CA8157E000CE82E /* NumberBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberBox.swift; sourceTree = "<group>"; };
+		5FDAFA7B1CA8157E000CE82E /* ProgressNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressNode.swift; sourceTree = "<group>"; };
+		5FDAFA7C1CA8157E000CE82E /* Utilites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilites.swift; sourceTree = "<group>"; };
+		5FDAFA831CA81646000CE82E /* AnimatedScoreLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedScoreLabel.h; sourceTree = "<group>"; };
+		5FDAFA841CA81646000CE82E /* AnimatedScoreLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedScoreLabel.m; sourceTree = "<group>"; };
+		5FF673181D03ED0100CEE1E5 /* FTLogging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FTLogging.framework; path = "Number Tap/FTLogging.framework"; sourceTree = "<group>"; };
+		5FF98C751CBA99A7003B6893 /* TCProgressBarNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCProgressBarNode.h; sourceTree = "<group>"; };
+		5FF98C761CBA99A7003B6893 /* TCProgressBarNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCProgressBarNode.m; sourceTree = "<group>"; };
+		5FF98C791CBAA4B2003B6893 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
+		5FF98C7B1CBAA4BE003B6893 /* Default-portrait@3x~iphone6+.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-portrait@3x~iphone6+.png"; sourceTree = "<group>"; };
+		5FF98C7D1CBABEF8003B6893 /* TCProgressTimerForegroundCropNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCProgressTimerForegroundCropNode.h; sourceTree = "<group>"; };
+		5FF98C7E1CBABEF8003B6893 /* TCProgressTimerForegroundCropNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCProgressTimerForegroundCropNode.m; sourceTree = "<group>"; };
+		5FF98C801CBABF11003B6893 /* TCProgressTimerNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCProgressTimerNode.h; sourceTree = "<group>"; };
+		5FF98C811CBABF11003B6893 /* TCProgressTimerNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCProgressTimerNode.m; sourceTree = "<group>"; };
+		A86360AF49FB2156EAFF0172 /* Pods_Number_Tap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Number_Tap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD0A65B0B7CC8D37B25581AE /* Pods-Number Tap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Number Tap.release.xcconfig"; path = "Pods/Target Support Files/Pods-Number Tap/Pods-Number Tap.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +208,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F78B42E1CE6113700F191DA /* WebKit.framework in Frameworks */,
+				5F8BFDCB1CA6B81C00F90C43 /* SystemConfiguration.framework in Frameworks */,
+				5F8BFDD81CA73C3A00F90C43 /* StoreKit.framework in Frameworks */,
+				5F78B42C1CE6110400F191DA /* Social.framework in Frameworks */,
+				5F78B42A1CE610ED00F191DA /* QuartzCore.framework in Frameworks */,
+				5F78B4281CE610DC00F191DA /* MessageUI.framework in Frameworks */,
+				5F78B4261CE610CE00F191DA /* MediaPlayer.framework in Frameworks */,
+				5F78B4241CE610C600F191DA /* EventKitUI.framework in Frameworks */,
+				5F78B4221CE610BC00F191DA /* EventKit.framework in Frameworks */,
+				5F78B4201CE610B200F191DA /* CoreTelephony.framework in Frameworks */,
+				5F78B41E1CE610A800F191DA /* CoreMedia.framework in Frameworks */,
+				5F8BFDDA1CA73C4700F90C43 /* CoreGraphics.framework in Frameworks */,
+				5FF673191D03ED0100CEE1E5 /* FTLogging.framework in Frameworks */,
+				5F78B41C1CE6108E00F191DA /* AVFoundation.framework in Frameworks */,
+				5F78B41A1CE6106C00F191DA /* AudioToolbox.framework in Frameworks */,
+				5F78B4161CE6103400F191DA /* libz.1.2.5.tbd in Frameworks */,
+				5F78B4181CE6105A00F191DA /* AdSupport.framework in Frameworks */,
+				5F212FBA1CCC80FD009174EB /* ReplayKit.framework in Frameworks */,
+				5F8075161CBA790B00D7A9BB /* PermissionScope.framework in Frameworks */,
+				5F2323AD1CF8FE3200FF5AEE /* AdColony.framework in Frameworks */,
+				5F675A3B1CB812E400CF172C /* iAd.framework in Frameworks */,
+				5F80751A1CBA7E4F00D7A9BB /* Chartboost.framework in Frameworks */,
+				5F8BFDC91CA6B81600F90C43 /* GameKit.framework in Frameworks */,
+				5FC98C071CAB2840000ABDD0 /* libsqlite3.tbd in Frameworks */,
+				5FC98C051CAB283A000ABDD0 /* libz.tbd in Frameworks */,
+				5FC98C031CAB2819000ABDD0 /* libUAirship-7.0.2.a in Frameworks */,
+				5F57F6981CA17DF8004FCA64 /* AirshipKit.framework in Frameworks */,
+				8B5777FBA84E6E3025243E91 /* Pods_Number_Tap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,13 +256,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F3368321CA98BEC00A2DE2C /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				5FF98C781CBAA4A9003B6893 /* Images */,
+				5F3368331CA98BEC00A2DE2C /* Fonts */,
+				5F33683D1CA98BEC00A2DE2C /* Sounds */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		5F3368331CA98BEC00A2DE2C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5F3368351CA98BEC00A2DE2C /* Montserrat-Bold.otf */,
+				5F3368381CA98BEC00A2DE2C /* Montserrat-Hairline.otf */,
+				5F3368391CA98BEC00A2DE2C /* Montserrat-Light.otf */,
+				5F33683A1CA98BEC00A2DE2C /* Montserrat-Regular.otf */,
+				5F33683B1CA98BEC00A2DE2C /* Montserrat-SemiBold.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		5F33683D1CA98BEC00A2DE2C /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				5F675A3D1CB82A9600CF172C /* blipBlop.wav */,
+				5FC98BFF1CAB21A7000ABDD0 /* blop01.wav */,
+				5FC98C001CAB21A7000ABDD0 /* blop02.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		5F57F6931CA17DD2004FCA64 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5F57F6971CA17DD5004FCA64 /* AirshipKit.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		5FDAF8301C94C15C009D815A = {
 			isa = PBXGroup;
 			children = (
+				5FC98C081CAB296F000ABDD0 /* AirshipResources.bundle */,
+				5F57F69D1CA17E30004FCA64 /* AirshipConfig.plist */,
+				5F57F6921CA17DD2004FCA64 /* AirshipKit.xcodeproj */,
+				5F57F6901CA17DCF004FCA64 /* AirshipKit */,
+				5F57F68E1CA17D27004FCA64 /* Airship */,
 				5FDAF83B1C94C15C009D815A /* Number Tap */,
 				5FDAF8541C94C15D009D815A /* Number TapTests */,
 				5FDAF85F1C94C15D009D815A /* Number TapUITests */,
 				5FDAF83A1C94C15C009D815A /* Products */,
+				C849A6A1DDBA443D936596BB /* Pods */,
+				FFEDA6FCA3FF3DAAE4142357 /* Frameworks */,
+				5F1D0F0D1C996244002E868D /* Number Tap-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,11 +330,16 @@
 				5FDAF83C1C94C15C009D815A /* AppDelegate.swift */,
 				5FDAF83E1C94C15C009D815A /* GameScene.sks */,
 				5FDAF8401C94C15C009D815A /* GameScene.swift */,
+				5F57F69F1CA1806D004FCA64 /* HomeScene.swift */,
+				5F69E51E1CB13F4800D7D01F /* GameModeScene.swift */,
 				5FDAF8421C94C15C009D815A /* GameViewController.swift */,
 				5FDAF8441C94C15C009D815A /* Main.storyboard */,
 				5FDAF8471C94C15C009D815A /* Assets.xcassets */,
 				5FDAF8491C94C15C009D815A /* LaunchScreen.storyboard */,
 				5FDAF84C1C94C15C009D815A /* Info.plist */,
+				5F8BFDD01CA710C700F90C43 /* iphone5.jpg */,
+				5F3368321CA98BEC00A2DE2C /* Assets */,
+				5FDAF8701C94C1F3009D815A /* Custom Classes */,
 			);
 			path = "Number Tap";
 			sourceTree = "<group>";
@@ -131,6 +362,100 @@
 			path = "Number TapUITests";
 			sourceTree = "<group>";
 		};
+		5FDAF8701C94C1F3009D815A /* Custom Classes */ = {
+			isa = PBXGroup;
+			children = (
+				5FDAFA751CA8153A000CE82E /* Objective-C */,
+				5FDAFA761CA8157E000CE82E /* Swift */,
+			);
+			name = "Custom Classes";
+			sourceTree = "<group>";
+		};
+		5FDAFA751CA8153A000CE82E /* Objective-C */ = {
+			isa = PBXGroup;
+			children = (
+				5FDAFA831CA81646000CE82E /* AnimatedScoreLabel.h */,
+				5FDAFA841CA81646000CE82E /* AnimatedScoreLabel.m */,
+				5FF98C751CBA99A7003B6893 /* TCProgressBarNode.h */,
+				5FF98C761CBA99A7003B6893 /* TCProgressBarNode.m */,
+				5FF98C7D1CBABEF8003B6893 /* TCProgressTimerForegroundCropNode.h */,
+				5FF98C7E1CBABEF8003B6893 /* TCProgressTimerForegroundCropNode.m */,
+				5FF98C801CBABF11003B6893 /* TCProgressTimerNode.h */,
+				5FF98C811CBABF11003B6893 /* TCProgressTimerNode.m */,
+			);
+			name = "Objective-C";
+			path = "Custom Classes/Objective-C";
+			sourceTree = "<group>";
+		};
+		5FDAFA761CA8157E000CE82E /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				5FDAFA771CA8157E000CE82E /* Constants.swift */,
+				5FDAFA781CA8157E000CE82E /* IAPHelper.swift */,
+				5FDAFA791CA8157E000CE82E /* NTProgressBar.swift */,
+				5FDAFA7A1CA8157E000CE82E /* NumberBox.swift */,
+				5FDAFA7B1CA8157E000CE82E /* ProgressNode.swift */,
+				5FDAFA7C1CA8157E000CE82E /* Utilites.swift */,
+				5FC042251CA8801A00264482 /* GameKitHelper.swift */,
+			);
+			name = Swift;
+			path = "Custom Classes/Swift";
+			sourceTree = "<group>";
+		};
+		5FF98C781CBAA4A9003B6893 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				5FF98C791CBAA4B2003B6893 /* Default-Landscape@2x~ipad.png */,
+				5FF98C7B1CBAA4BE003B6893 /* Default-portrait@3x~iphone6+.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		C849A6A1DDBA443D936596BB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				441A032841553DD3FAE27A0D /* Pods-Number Tap.debug.xcconfig */,
+				FD0A65B0B7CC8D37B25581AE /* Pods-Number Tap.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FFEDA6FCA3FF3DAAE4142357 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5FF673181D03ED0100CEE1E5 /* FTLogging.framework */,
+				5F78B42D1CE6113700F191DA /* WebKit.framework */,
+				5F78B42B1CE6110400F191DA /* Social.framework */,
+				5F78B4291CE610ED00F191DA /* QuartzCore.framework */,
+				5F78B4271CE610DC00F191DA /* MessageUI.framework */,
+				5F78B4251CE610CE00F191DA /* MediaPlayer.framework */,
+				5F78B4231CE610C600F191DA /* EventKitUI.framework */,
+				5F78B4211CE610BC00F191DA /* EventKit.framework */,
+				5F78B41F1CE610B200F191DA /* CoreTelephony.framework */,
+				5F78B41D1CE610A800F191DA /* CoreMedia.framework */,
+				5F78B41B1CE6108E00F191DA /* AVFoundation.framework */,
+				5F78B4191CE6106C00F191DA /* AudioToolbox.framework */,
+				5F78B4171CE6105A00F191DA /* AdSupport.framework */,
+				5F78B4151CE6103400F191DA /* libz.1.2.5.tbd */,
+				5F78B4131CE5FF9800F191DA /* AdColony.framework */,
+				5F212FB91CCC80FD009174EB /* ReplayKit.framework */,
+				5F8075181CBA7DA100D7A9BB /* Chartboost.framework */,
+				5F8075151CBA790B00D7A9BB /* PermissionScope.framework */,
+				5FD758251CB92E1700C1E1A0 /* STNotificationHelper.framework */,
+				5F675A3A1CB812E400CF172C /* iAd.framework */,
+				5FC98C061CAB2840000ABDD0 /* libsqlite3.tbd */,
+				5FC98C041CAB283A000ABDD0 /* libz.tbd */,
+				5F229D471CAACE3600A4C014 /* libUAirship-7.0.2.a */,
+				5F229D451CAACE3600A4C014 /* libUAirship-7.0.2.a */,
+				5F8BFDD91CA73C4700F90C43 /* CoreGraphics.framework */,
+				5F8BFDD71CA73C3A00F90C43 /* StoreKit.framework */,
+				5F8BFDCA1CA6B81C00F90C43 /* SystemConfiguration.framework */,
+				5F8BFDC81CA6B81600F90C43 /* GameKit.framework */,
+				A86360AF49FB2156EAFF0172 /* Pods_Number_Tap.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,13 +463,20 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5FDAF8651C94C15D009D815A /* Build configuration list for PBXNativeTarget "Number Tap" */;
 			buildPhases = (
+				93755D16375140B1C6F7E103 /* Check Pods Manifest.lock */,
 				5FDAF8351C94C15C009D815A /* Sources */,
-				5FDAF8361C94C15C009D815A /* Frameworks */,
 				5FDAF8371C94C15C009D815A /* Resources */,
+				1E05A2E683F908A8DAE4C1A5 /* Embed Pods Frameworks */,
+				4BF986F53CDCEBE50811B5EA /* Copy Pods Resources */,
+				5FDAF8361C94C15C009D815A /* Frameworks */,
+				5F57F69C1CA17DF8004FCA64 /* Embed Frameworks */,
+				5F1CC5431CB1601400488116 /* ShellScript */,
+				5F675A3F1CB851F700CF172C /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5F57F69B1CA17DF8004FCA64 /* PBXTargetDependency */,
 			);
 			name = "Number Tap";
 			productName = "Number Tap";
@@ -199,6 +531,15 @@
 				TargetAttributes = {
 					5FDAF8381C94C15C009D815A = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 964QFWYN42;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					5FDAF8501C94C15D009D815A = {
 						CreatedOnToolsVersion = 7.3;
@@ -221,6 +562,12 @@
 			mainGroup = 5FDAF8301C94C15C009D815A;
 			productRefGroup = 5FDAF83A1C94C15C009D815A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 5F57F6931CA17DD2004FCA64 /* Products */;
+					ProjectRef = 5F57F6921CA17DD2004FCA64 /* AirshipKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				5FDAF8381C94C15C009D815A /* Number Tap */,
@@ -230,13 +577,36 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		5F57F6971CA17DD5004FCA64 /* AirshipKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AirshipKit.framework;
+			remoteRef = 5F57F6961CA17DD5004FCA64 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		5FDAF8371C94C15C009D815A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				5FDAF83F1C94C15C009D815A /* GameScene.sks in Resources */,
+				5FC98C091CAB296F000ABDD0 /* AirshipResources.bundle in Resources */,
+				5F8BFDD11CA710C700F90C43 /* iphone5.jpg in Resources */,
+				5F57F69E1CA17E30004FCA64 /* AirshipConfig.plist in Resources */,
+				5FC98C011CAB21A7000ABDD0 /* blop01.wav in Resources */,
+				5F3368431CA98BEC00A2DE2C /* Montserrat-Light.otf in Resources */,
+				5F33683F1CA98BEC00A2DE2C /* Montserrat-Bold.otf in Resources */,
+				5F675A3E1CB82A9600CF172C /* blipBlop.wav in Resources */,
+				5FC98C021CAB21A7000ABDD0 /* blop02.wav in Resources */,
+				5F3368441CA98BEC00A2DE2C /* Montserrat-Regular.otf in Resources */,
+				5FF98C7C1CBAA4BE003B6893 /* Default-portrait@3x~iphone6+.png in Resources */,
+				5F3368451CA98BEC00A2DE2C /* Montserrat-SemiBold.otf in Resources */,
+				5F3368421CA98BEC00A2DE2C /* Montserrat-Hairline.otf in Resources */,
 				5FDAF84B1C94C15C009D815A /* LaunchScreen.storyboard in Resources */,
+				5FF98C7A1CBAA4B2003B6893 /* Default-Landscape@2x~ipad.png in Resources */,
 				5FDAF8481C94C15C009D815A /* Assets.xcassets in Resources */,
 				5FDAF8461C94C15C009D815A /* Main.storyboard in Resources */,
 			);
@@ -258,14 +628,103 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1E05A2E683F908A8DAE4C1A5 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Number Tap/Pods-Number Tap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4BF986F53CDCEBE50811B5EA /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Number Tap/Pods-Number Tap-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5F1CC5431CB1601400488116 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" e646fd73b687715172bd2ddacc4e5011beb37819 e5548abfd483a0a20a77dfa9919f7f88956dc5e048b44d572a3ce0048f6ca881";
+		};
+		5F675A3F1CB851F700CF172C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
+		93755D16375140B1C6F7E103 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5FDAF8351C94C15C009D815A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FDAFA821CA8157E000CE82E /* Utilites.swift in Sources */,
+				5FDAFA7D1CA8157E000CE82E /* Constants.swift in Sources */,
+				5F229D431CAACD1700A4C014 /* AirshipKit in Sources */,
+				5FF98C821CBABF11003B6893 /* TCProgressTimerNode.m in Sources */,
 				5FDAF8411C94C15C009D815A /* GameScene.swift in Sources */,
+				5F69E51F1CB13F4800D7D01F /* GameModeScene.swift in Sources */,
+				5FF98C771CBA99A7003B6893 /* TCProgressBarNode.m in Sources */,
+				5FF98C7F1CBABEF8003B6893 /* TCProgressTimerForegroundCropNode.m in Sources */,
+				5F57F6A01CA1806D004FCA64 /* HomeScene.swift in Sources */,
+				5F229D441CAACD1900A4C014 /* Airship in Sources */,
+				5FC042261CA8801A00264482 /* GameKitHelper.swift in Sources */,
+				5FDAFA811CA8157E000CE82E /* ProgressNode.swift in Sources */,
+				5FDAFA851CA81646000CE82E /* AnimatedScoreLabel.m in Sources */,
 				5FDAF8431C94C15C009D815A /* GameViewController.swift in Sources */,
+				5FDAFA801CA8157E000CE82E /* NumberBox.swift in Sources */,
+				5FDAFA7E1CA8157E000CE82E /* IAPHelper.swift in Sources */,
 				5FDAF83D1C94C15C009D815A /* AppDelegate.swift in Sources */,
+				5FDAFA7F1CA8157E000CE82E /* NTProgressBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +747,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5F57F69B1CA17DF8004FCA64 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AirshipKit;
+			targetProxy = 5F57F69A1CA17DF8004FCA64 /* PBXContainerItemProxy */;
+		};
 		5FDAF8531C94C15D009D815A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5FDAF8381C94C15C009D815A /* Number Tap */;
@@ -355,6 +819,8 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -394,6 +860,8 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -405,23 +873,152 @@
 		};
 		5FDAF8661C94C15D009D815A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 441A032841553DD3FAE27A0D /* Pods-Number Tap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"$(inherited)",
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Number Tap/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.flatboxstudio.jesseono.Number-Tap";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Airship",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"Appirater\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"Crashlytics\"",
+					"-framework",
+					"\"EventKit\"",
+					"-framework",
+					"\"EventKitUI\"",
+					"-framework",
+					"\"Fabric\"",
+					"-framework",
+					"\"MediaPlayer\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"PermissionScope\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-weak_framework",
+					"\"AdSupport\"",
+					"-fobjc-arc",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.flatboxstudio.numbertap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "58db3d8f-8267-4657-889e-036cea305fd1";
+				SWIFT_OBJC_BRIDGING_HEADER = "Number Tap-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		5FDAF8671C94C15D009D815A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD0A65B0B7CC8D37B25581AE /* Pods-Number Tap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"$(inherited)",
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Number Tap/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.flatboxstudio.jesseono.Number-Tap";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Airship",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"Appirater\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"Crashlytics\"",
+					"-framework",
+					"\"EventKit\"",
+					"-framework",
+					"\"EventKitUI\"",
+					"-framework",
+					"\"Fabric\"",
+					"-framework",
+					"\"MediaPlayer\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"PermissionScope\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-weak_framework",
+					"\"AdSupport\"",
+					"-fobjc-arc",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.flatboxstudio.numbertap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "684f8e80-cef4-4131-be65-069736e9e3bf";
+				SWIFT_OBJC_BRIDGING_HEADER = "Number Tap-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -492,6 +1089,7 @@
 				5FDAF8671C94C15D009D815A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5FDAF8681C94C15D009D815A /* Build configuration list for PBXNativeTarget "Number TapTests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +1098,7 @@
 				5FDAF86A1C94C15D009D815A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5FDAF86B1C94C15D009D815A /* Build configuration list for PBXNativeTarget "Number TapUITests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +1107,7 @@
 				5FDAF86D1C94C15D009D815A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
