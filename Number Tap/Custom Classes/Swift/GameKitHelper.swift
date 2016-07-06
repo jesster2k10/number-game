@@ -27,6 +27,8 @@ public class GameKitHelper : NSObject, GKGameCenterControllerDelegate {
     
     private var timer = NSTimer()
     
+    public var gcVC: GKGameCenterViewController!
+    
     public func authenticateLocalPlayer(viewController: UIViewController) {
         let localPlayer: GKLocalPlayer = GKLocalPlayer.localPlayer()
         
@@ -104,11 +106,30 @@ public class GameKitHelper : NSObject, GKGameCenterControllerDelegate {
     
     func showGameCenter(viewController: UIViewController, viewState: GKGameCenterViewControllerState) {
         
-        let gcVC: GKGameCenterViewController = GKGameCenterViewController()
-        gcVC.gameCenterDelegate = self
-        gcVC.viewState = viewState
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let gc = defaults.boolForKey("gcEnabled")
         
-        viewController.presentViewController(gcVC, animated: true, completion: nil)
+        if gc == true {
+            gcVC = GKGameCenterViewController()
+            gcVC.gameCenterDelegate = self
+            gcVC.viewState = viewState
+            
+            viewController.presentViewController(gcVC, animated: true, completion: {
+                
+                
+            })
+        } else {
+            let alert = UIAlertController(title: "Game Center Unavaliable", message: "Game Center is diabled", preferredStyle: .Alert) // 1
+            let firstAction = UIAlertAction(title: "Ok", style: .Default) { (alert: UIAlertAction!) -> Void in
+                
+                NSLog("You pressed button one")
+                
+            }
+            
+            alert.addAction(firstAction)
+            viewController.presentViewController(alert, animated: true, completion:nil) // 6
+
+        }
 
     }
     

@@ -10,11 +10,12 @@ import SpriteKit
 import GameKit
 import StoreKit
 import ReplayKit
+import MBProgressHUD
 
 class GameScene: SKScene, RPScreenRecorderDelegate {
     var array = [Int]()
     var products = [SKProduct]()
-    
+    var continueArray = [SKNode]()
     var topArray = [SKNode]()
     
     var number = 0
@@ -36,6 +37,9 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
     let currentTime = 30
     
     var countdownTime = 45.0
+    var ckTime = 45
+    
+    var isShowingContinue = false
     
     var timeLabel = SKLabelNode()
     var scoreLabel = AnimatedScoreLabel(text: "Score", score: 0, size: 25, color: UIColor(rgba: "#e74c3c"))
@@ -44,15 +48,10 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
     var tapOnLabel = SKLabelNode(fontNamed: "Montserrat-SemiBold")
     let numberLabel = SKLabelNode(fontNamed: "Montserrat-SemiBold")
     
-    let progressBar = TCProgressBarNode(size: CGSizeMake(150,32.0),
-                                        backgroundColor: UIColor.darkGrayColor(),
-                                        fillColor: UIColor.redColor(),
-                                        borderColor: UIColor.lightGrayColor(),
-                                        borderWidth: 2.0,
-                                        cornerRadius: 4.0)
     
     let circularTimer = ProgressNode()
     var gameTimer = NSTimer()
+    var timer = NSTimer()
     
     var shortestTimer = NSTimer()
     var shortestTimeCounter = 0
@@ -67,11 +66,11 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
     var progressTimer = NSTimer()
     
     let background = SKSpriteNode(imageNamed: "background")
-    let share = SKSpriteNode(imageNamed: "share")
-    let removeAds = SKSpriteNode(imageNamed: "removeAllAds")
-    let gameCenter =  SKSpriteNode(imageNamed: "gameCenter")
-    let bestScore = SKSpriteNode(imageNamed: "best")
-    let beginGame = SKSpriteNode(imageNamed: "beginGame")
+    let share = SKSpriteNode(imageNamed: NSLocalizedString("share", comment: "share-button"))
+    let removeAds = SKSpriteNode(imageNamed: NSLocalizedString("removeAds", comment: "remove-ads"))
+    let gameCenter =  SKSpriteNode(imageNamed: NSLocalizedString("gameCenter", comment: "game-center"))
+    let recentScore = SKSpriteNode(imageNamed: NSLocalizedString("score", comment: "score"))
+    let beginGame = SKSpriteNode(imageNamed: NSLocalizedString("beginGame", comment: "begin-game"))
     let home = SKSpriteNode(imageNamed: "home")
     let sound = SKSpriteNode(imageNamed: "sound")
     let info = SKSpriteNode(imageNamed: "info")
@@ -80,6 +79,11 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
     let replay = SKSpriteNode(imageNamed: "replay")
     let record = SKSpriteNode(imageNamed: "record")
     let homeButton = SKSpriteNode(imageNamed: "home")
+    let no = SKSpriteNode(imageNamed: NSLocalizedString("no", comment: "no-button"))
+    let free = SKSpriteNode(imageNamed: NSLocalizedString("free", comment: "free-button"))
+    let continueLabel = SKLabelNode(fontNamed: "Montserrat-SemiBold")
+    let continueCountLabel = SKLabelNode(fontNamed: "Montserrat-Light")
+    var continueTimer = NSTimer()
     
     let countdown = CountdownNode(texture: nil, color: UIColor.clearColor(), size: CGSizeMake(0, 0))
     var popUp : SKSpriteNode!
@@ -125,7 +129,11 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
         /* Setup your scene here */
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameScene.productPurchased), name: IAPHelperProductPurchasedNotification, object: nil)
-        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(productCancelled), name: "cancelled", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameScene.rewardUser(_:)), name: "videoRewarded", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameScene.counterComplete), name: "counter", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameScene.setPaused), name: "pauseGame", object: nil)
+
         products = []
         Products.store.requestProductsWithCompletionHandler { (success, products) in
             if success {
@@ -135,6 +143,13 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
         
         randomWord()
         
+        if let _ = NSUserDefaults.standardUserDefaults().objectForKey("hasRemovedAds") as? Bool {
+            FTLogging().FTLog("all ads are gone")
+            
+        } else {
+            NSNotificationCenter.defaultCenter().postNotificationName("hideBanner", object: nil)
+        }
+
         size = CGSizeMake(640, 960)
         backgroundColor = UIColor(red: 40, green: 40, blue: 40, alpha: 1)
         scaleMode = .AspectFill
@@ -144,7 +159,12 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
         background.zPosition = -10
         addChild(background)
         
-        currentMode = .Endless
+        if NSUserDefaults.isFirstLaunch() {
+            currentMode = .FirstLaunch
+        } else {
+            currentMode = .Endless
+        }
+        
         initScene(currentMode, time: nil)
     }
     
@@ -258,7 +278,7 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
         })
         
         if let _ = NSUserDefaults.standardUserDefaults().objectForKey("hasRemovedAds") as? Bool {
-             NSNotificationCenter.defaultCenter().postNotificationName("hideAds", object: nil)
+            NSNotificationCenter.defaultCenter().postNotificationName("hideAds", object: nil)
         }
         
         if mode != .Memory {
@@ -280,21 +300,24 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
             self.numberLabel.position = CGPointMake(self.tapOnLabel.position.x + 130, -90)
             self.addChild(self.numberLabel)
             
-            let dbackground = SKSpriteNode(imageNamed: "background")
-            dbackground.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
-            dbackground.size = self.size
-            dbackground.alpha = 0.8
-            dbackground.name = "bg"
-            dbackground.zPosition = 9
-            addChild(dbackground)
             
+            if mode != .FirstLaunch {
             
-            countdown.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
-            countdown.zPosition = 10
-            addChild(countdown)
-            
-            countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.countdownCheck), userInfo: nil, repeats: true)
-            timerArray.append(countdownTimer)
+                countdown.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
+                countdown.zPosition = 10
+                addChild(countdown)
+                
+                countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.countdownCheck), userInfo: nil, repeats: true)
+                timerArray.append(countdownTimer)
+                
+                let dbackground = SKSpriteNode(imageNamed: "background")
+                dbackground.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
+                dbackground.size = self.size
+                dbackground.alpha = 0.8
+                dbackground.name = "bg"
+                dbackground.zPosition = 9
+                addChild(dbackground)
+            }
         }
         
         boxArray.append(numberBox1)
@@ -321,6 +344,33 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
         boxArray.append(numberBox22)
         boxArray.append(numberBox23)
         boxArray.append(numberBox24)
+        
+        if mode == .FirstLaunch {
+            createTutorial(tutorialWithNumber: 1)
+        }
+    }
+    
+    func createTutorial(tutorialWithNumber number: Int) {
+        
+        if number == 1 {
+            let tut1 = TutorialBox(withType: .Regular, lineOne: "Find this number", lineTwo: nil, lineThree: nil, fontSize : 16)
+            tut1.position = CGPoint(x: numberLabel.position.x, y: numberLabel.position.y + 250)
+            tut1.zPosition = 25
+            tut1.name = "tut" + String(number)
+            addChild(tut1)
+            
+            tut1.bounce()
+        }
+        
+        else if number == 2 {
+            let tut2 = TutorialBox(withType: .Regular, lineOne: "Tap Me!", lineTwo: nil, lineThree: nil, fontSize : 16)
+            tut2.position = CGPoint(x: numberLabel.position.x, y: numberLabel.position.y + 250)
+            tut2.zPosition = 25
+            tut2.name = "tut" + String(number)
+            addChild(tut2)
+            
+            tut2.bounce()
+        }
     }
     
     func initScene(mode: gameMode, time: Int?) {
@@ -381,7 +431,7 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
             record.zPosition = 2
             addChild(record)
             
-        } else if mode == .Endless {
+        } else if mode == .Endless || mode == .FirstLaunch {
             
             setupScene(mode)
             
@@ -510,41 +560,59 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
         }
         
     }
-
     
     func countdownCheck() {
         
         countdown.counterUpdate()
+    }
     
-        if NSUserDefaults.standardUserDefaults().boolForKey("init") == true {
+    func counterComplete () {
+        countdownTimer.invalidate()
+        countdown.runAction(SKAction.fadeAlphaTo(0, duration: 1), completion: {
+            self.countdown.removeFromParent()
+            self.childNodeWithName("bg")?.removeFromParent()
             
-            countdownTimer.invalidate()
-            countdown.runAction(SKAction.fadeAlphaTo(0, duration: 1), completion: { 
-                self.countdown.removeFromParent()
-                self.childNodeWithName("bg")?.removeFromParent()
+            if self.currentMode != .Memory {
                 
-                if self.currentMode != .Memory {
+
                 
-                    self.circularTimer.countdown(45) { (Void) in
-                        self.gameEnd()
+                if self.currentMode == .Easy {
+                    self.circularTimer.countdown(60) { (Void) in
+                        self.gameEnd(false)
                     }
-                    
-                    //self.gameTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.gameTimerCheck), userInfo: nil, repeats: true)
-                    self.timerArray.append(self.gameTimer)
-                    
-                }
+                };
                 
-                self.counterHasFinished = true
+                if self.currentMode == .Impossible {
+                    self.circularTimer.countdown(30) { (Void) in
+                        self.gameEnd(false)
+                    }
+                };
                 
-                self.shortestTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.updateCurrentGameTime), userInfo: nil, repeats: true)
-                self.timerArray.append(self.shortestTimer)
+                if self.currentMode == .Endless {
+                    self.circularTimer.countdown(NSTimeInterval(self.ckTime)) { (Void) in
+                        self.timer = NSTimer.every(1, {
+                            if self.ckTime < 0 {
+                                self.ckTime -= 1
+                            }
+                        })
+                        self.gameEnd(false)
+                    }
+                };
                 
-                self.longestTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.updateCurrentGameTime), userInfo: nil, repeats: true)
-                self.timerArray.append(self.longestTimer)
-            })
+                //self.gameTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.gameTimerCheck), userInfo: nil, repeats: true)
+                self.timerArray.append(self.gameTimer)
+                
+            }
             
-        }
- 
+            self.counterHasFinished = true
+            
+            self.shortestTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.updateCurrentGameTime), userInfo: nil, repeats: true)
+            self.timerArray.append(self.shortestTimer)
+            
+            self.longestTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.updateCurrentGameTime), userInfo: nil, repeats: true)
+            self.timerArray.append(self.longestTimer)
+        })
+
     }
     
     func updateCurrentGameTime() {
@@ -556,181 +624,238 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
     
+    func productCancelled() {
+        MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+    }
+
     //MARK: Scoring Methods/Scene Methods
     
-    func setPaused(paused isPaused: Bool) {
-        
+    func setPaused() {
+        FTLogging().FTLog("Pause")
     }
     
-    func gameEnd() {
-        
+    func gameEnd(showOther : Bool) {
+        NSUserDefaults.standardUserDefaults().setFloat(Float(circularTimer.progress), forKey: "lastProgress")
         circularTimer.stopCountdown()
-        
+        timer.invalidate()
         longestTimer.invalidate()
         
         GameKitHelper.sharedGameKitHelper.reportLeaderboardIdentifier(k.GameCenter.Leaderboard.TopScorers, score: numbersTapped)
         GameKitHelper.sharedGameKitHelper.reportLeaderboardIdentifier(k.GameCenter.Leaderboard.LongestRound, score: longestTimeCounter)
         GameKitHelper.sharedGameKitHelper.checkIfAchivement()
         
-        /*if launchedBefore  {
-            FTLogging().FTLog("Not first launch.")
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setInteger(score, forKey: "score")
-        }
-        else {
-            FTLogging().FTLog("First launch, setting NSUserDefault.")
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "launchedBefore")
-            
-            let defaults = NSUserDefaults.standardUserDefaults()
-            let oldScore = defaults.integerForKey("score")
-            let newScore = oldScore + score
-            
-            defaults.setInteger(newScore, forKey: "score")
-        }*/
+        let dbackground = SKSpriteNode(imageNamed: "background")
+        dbackground.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
+        dbackground.size = self.size
+        dbackground.name = "whiteBG"
+        dbackground.alpha = 0.9
+        dbackground.zPosition = 3
+        if self.children.contains(dbackground) {} else { addChild(dbackground) }
         
         let def = NSUserDefaults.standardUserDefaults()
         if let _ = def.objectForKey("hasRemovedAds") as? Bool {
             FTLogging().FTLog("all ads are gone")
             
+        }
+        
+        let videoSaveDefault = NSUserDefaults.standardUserDefaults().integerForKey("videoSave")
+        var videoSave = 1
+        
+        if videoSaveDefault == 0 {
+            addContinue()
         } else {
-            
-            let random = arc4random_uniform(8) + 1
-            
-            if random == 5 || random == 2 {
-                AdColony.playVideoAdForZone(k.keys.ADZoneIDs[0], withDelegate: nil)
-            }
+            addStuff()
+            videoSave -= 1
+            NSUserDefaults.standardUserDefaults().setInteger(videoSave, forKey: "videoSave")
         }
-        
-        if hasRun == 0 {
-            
-            hasGameEnded = true
-        
-            NSUserDefaults.standardUserDefaults().highScore = numbersTapped
-            
-            
-            for box in boxArray {
-                box.userInteractionEnabled = false
-            }
-            
-            let dbackground = SKSpriteNode(imageNamed: "background")
-            dbackground.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
-            dbackground.size = self.size
-            dbackground.name = "whiteBG"
-            dbackground.alpha = 0.8
-            dbackground.zPosition = 3
-            if self.children.contains(dbackground) {} else { addChild(dbackground) }
-            
-            bestScore.setScale(1.12)
-            bestScore.name = "bestScore"
-            bestScore.position = CGPointMake(CGRectGetMidX(self.frame) - 100, CGRectGetMidY(self.frame))
-            bestScore.zPosition = 4
-            bestScore.setScale(0)
-            
-            let bestScoreText = SKLabelNode(fontNamed: "Montserrat-SemiBold")
-            bestScoreText.text = String(NSUserDefaults.standardUserDefaults().highScore)
-            bestScoreText.fontColor = UIColor.whiteColor()
-            bestScoreText.fontSize = 42
-            bestScoreText.zPosition = bestScore.zPosition + 1
-            bestScoreText.horizontalAlignmentMode = .Center
-            bestScoreText.verticalAlignmentMode = .Center
-            bestScoreText.position.y = bestScore.size.height/2 - 28
-            
-            if bestScore.children.contains(bestScoreText) {} else { bestScore.addChild(bestScoreText) }
-            
-            if self.children.contains(bestScore) {} else { addChild(bestScore)
-                bestScore.runAction(SKAction.scaleTo(1, duration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0))
-            }
-            
-            gameCenter.name = "gameCenter"
-            gameCenter.position = CGPointMake(bestScore.position.x + 180, bestScore.position.y)
-            gameCenter.zPosition = 4
-            if self.children.contains(gameCenter) {} else { addChild(gameCenter) }
-            
-            removeAds.name = "removeAds"
-            removeAds.position = CGPointMake(gameCenter.position.x - 50, gameCenter.position.y + 140)
-            removeAds.zPosition = 4
-            removeAds.setScale(0.2)
-            if self.children.contains(removeAds) {} else { addChild(removeAds) }
-            
-            removeAds.runAction(SKAction.scaleTo(1, duration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0))
-            
-            share.name = "share"
-            share.position = CGPointMake(removeAds.position.x  - 20, removeAds.position.y - 270)
-            share.zPosition = 4
-            share.setScale(0.4)
-            if self.children.contains(share) {} else { addChild(share) }
-            
-            share.runAction(SKAction.scaleTo(1, duration: 0, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0))
-            
-            beginGame.name = "beginGame"
-            beginGame.position = CGPointMake(CGRectGetMidX(self.frame), -90)
-            beginGame.zPosition = 4
-            if self.children.contains(beginGame) {} else { addChild(beginGame) }
-            
-            beginGame.runAction(SKAction.moveToY(90, duration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0))
-            
-            var arr = [SKSpriteNode]()
-            
-            home.name = "home"
-            home.position = CGPoint(x: CGRectGetMidX(self.frame) + 145, y: 150)
-            home.zPosition = 7
-            home.alpha = 1
-            home.setScale(0)
-            addChild(home)
-            
-            info.name = "home"
-            info.position = CGPoint(x: home.position.x - 50, y: home.position.y)
-            info.zPosition = 7
-            info.alpha = 1
-            info.setScale(0)
-            addChild(info)
-            
-            sound.name = "home"
-            sound.position = CGPoint(x: info.position.x - 50, y: home.position.y)
-            sound.zPosition = 7
-            sound.alpha = 1
-            sound.setScale(0)
-            addChild(sound)
-            
-            arr.append(home)
-            arr.append(info)
-            arr.append(sound)
-            
-            for item in arr {
-                item.runAction(SKAction.scaleTo(1, duration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0))
-            }
-            
-            if self.children.contains(home) {
-                FTLogging().FTLog("hskjfldk;sjfkldsjf;lksdjfkldsjfgklsdjglk \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
-            }
-      
-            let gameOverText = SKLabelNode(fontNamed: "Montserrat-SemiBold")
-            gameOverText.color = UIColor.whiteColor()
-            gameOverText.horizontalAlignmentMode = .Center
-            gameOverText.zPosition = 22
-            gameOverText.text = "game over"
-            gameOverText.name = "gameOver"
-            gameOverText.fontSize = 55
-            gameOverText.position = CGPointMake(CGRectGetMidX(self.frame), removeAds.position.y + 1000)
-            if self.childNodeWithName("gameOver") != nil {
-                addChild(gameOverText)
-            }
-            
-            gameOverText.runAction(SKAction.moveToY(removeAds.position.y + 140, duration: 1))
-            
-            hasRun = 1
-        }
-        if isRecording {
-            stopRecording()
-        }
-
     }
     
+    func addStuff() {
+        hasGameEnded = true
+        
+        NSUserDefaults.standardUserDefaults().highScore = numbersTapped
+        
+        for box in boxArray {
+            box.userInteractionEnabled = false
+        }
+        
+        recentScore.setScale(1.12)
+        recentScore.name = "recentScore"
+        recentScore.position = CGPointMake(CGRectGetMidX(self.frame) - 100, CGRectGetMidY(self.frame))
+        recentScore.zPosition = 4
+        recentScore.setScale(0)
+        
+        let recentScoreText = SKLabelNode(fontNamed: "Montserrat-SemiBold")
+        recentScoreText.text = String(score)
+        recentScoreText.fontColor = UIColor.whiteColor()
+        recentScoreText.fontSize = 42
+        recentScoreText.zPosition = recentScore.zPosition + 1
+        recentScoreText.horizontalAlignmentMode = .Center
+        recentScoreText.verticalAlignmentMode = .Center
+        recentScoreText.position.y = recentScore.size.height/2 - 28
+        
+        if recentScore.children.contains(recentScoreText) {} else { recentScore.addChild(recentScoreText) }
+        
+        if self.children.contains(recentScore) {} else { addChild(recentScore)
+            recentScore.runAction(SKAction.scaleTo(1, duration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0))
+        }
+        
+        gameCenter.name = "gameCenter"
+        gameCenter.position = CGPointMake(recentScore.position.x + 180, recentScore.position.y)
+        gameCenter.zPosition = 4
+        if self.children.contains(gameCenter) {} else { addChild(gameCenter) }
+        
+        removeAds.name = "removeAds"
+        removeAds.position = CGPointMake(gameCenter.position.x - 50, gameCenter.position.y + 140)
+        removeAds.zPosition = 4
+        removeAds.setScale(0.2)
+        if self.children.contains(removeAds) {} else { addChild(removeAds) }
+        
+        removeAds.runAction(SKAction.scaleTo(1, duration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0))
+        
+        share.name = "share"
+        share.position = CGPointMake(removeAds.position.x  - 20, removeAds.position.y - 270)
+        share.zPosition = 4
+        share.setScale(0.4)
+        if self.children.contains(share) {} else { addChild(share) }
+        
+        share.runAction(SKAction.scaleTo(1, duration: 0, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0))
+        
+        beginGame.name = "beginGame"
+        beginGame.position = CGPointMake(CGRectGetMidX(self.frame), -90)
+        beginGame.zPosition = 4
+        if self.children.contains(beginGame) {} else { addChild(beginGame) }
+        
+        beginGame.runAction(SKAction.moveToY(90, duration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0))
+        
+        var arr = [SKSpriteNode]()
+        
+        home.name = "home"
+        home.position = CGPoint(x: CGRectGetMidX(self.frame) + 145, y: 150)
+        home.zPosition = 7
+        home.alpha = 1
+        home.setScale(0)
+        if self.children.contains(home) {} else { addChild(home) }
+
+        
+        info.name = "home"
+        info.position = CGPoint(x: home.position.x - 50, y: home.position.y)
+        info.zPosition = 7
+        info.alpha = 1
+        info.setScale(0)
+        if self.children.contains(info) {} else { addChild(info) }
+
+        
+        sound.name = "home"
+        sound.position = CGPoint(x: info.position.x - 50, y: home.position.y)
+        sound.zPosition = 7
+        sound.alpha = 1
+        sound.setScale(0)
+        if self.children.contains(sound) {} else { addChild(sound) }
+
+        
+        arr.append(home)
+        arr.append(info)
+        arr.append(sound)
+        
+        for item in arr {
+            if UIDevice.currentDevice().type == .iPadMini1 {
+                item.runAction(SKAction.scaleTo(0.4, duration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0))
+            } else {
+                item.runAction(SKAction.scaleTo(1, duration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0))
+            }
+        }
+        
+        let gameOverText = SKLabelNode(fontNamed: "Montserrat-SemiBold")
+        gameOverText.color = UIColor.whiteColor()
+        gameOverText.horizontalAlignmentMode = .Center
+        gameOverText.zPosition = 22
+        gameOverText.text = "game over"
+        gameOverText.name = "gameOver"
+        gameOverText.fontSize = 55
+        gameOverText.position = CGPointMake(CGRectGetMidX(self.frame), removeAds.position.y + 1000)
+        if self.childNodeWithName("gameOver") != nil {
+            addChild(gameOverText)
+        }
+        
+        gameOverText.runAction(SKAction.moveToY(removeAds.position.y + 140, duration: 1))
+        
+        hasRun = 1
+        isShowingContinue = false
+
+    
+    if isRecording {
+        stopRecording()
+    }
+    }
+    
+    func addContinue () {
+        if Reachability.isConnectedToNetwork() {
+            
+            var count = 10
+            
+            continueLabel.position = CGPoint(x: 327, y: 687)
+            continueLabel.fontColor = UIColor.whiteColor()
+            continueLabel.zPosition = 33
+            continueLabel.horizontalAlignmentMode = .Center
+            continueLabel.text = NSLocalizedString("continue", comment: "continue")
+            continueLabel.fontSize = 75
+            if self.children.contains(continueLabel) {} else { addChild(continueLabel) }
+            
+            continueCountLabel.position = CGPoint(x: 327, y: 608)
+            continueCountLabel.fontColor = UIColor.whiteColor()
+            continueCountLabel.zPosition = 33
+            continueCountLabel.horizontalAlignmentMode = .Center
+            continueCountLabel.fontSize = 75
+            continueLabel.text = "continue?"
+            if self.children.contains(continueCountLabel) {} else { addChild(continueCountLabel) }
+            
+            free.position = CGPoint(x: 255, y: 431)
+            free.zPosition = continueLabel.zPosition
+            if self.children.contains(free) {} else { addChild(free) }
+            
+            no.position = CGPoint(x: 380, y: 431)
+            no.zPosition = continueLabel.zPosition
+            if self.children.contains(no) {} else { addChild(no) }
+            
+            continueArray.append(continueCountLabel)
+            continueArray.append(continueLabel)
+            continueArray.append(free)
+            continueArray.append(no)
+            
+            for node in continueArray {
+                node.alpha = 1
+            }
+                
+            isShowingContinue = true
+            
+            /*continueTimer = NSTimer.every(1, {
+                if count < 0 {
+                    count -= 1
+                    self.continueCountLabel.text = String(count)
+                } else {
+                    self.continueTimer.invalidate()
+                    
+                    for node in self.continueArray {
+                        node.runAction(SKAction.fadeOutWithDuration(1))
+                    }
+                    
+                    self.addStuff()
+                }
+            })*/
+                
+        } else {
+            addStuff()
+        }
+        
+        
+    }
+
     func clearScene() {
         
         removeAds.runAction(SKAction.moveToY(-1000, duration: 2.4, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0))
         
-        bestScore.runAction(SKAction.moveToY(-1000, duration: 2.1, delay: 1, usingSpringWithDamping: 0.2, initialSpringVelocity: 0))
+        recentScore.runAction(SKAction.moveToY(-1000, duration: 2.1, delay: 1, usingSpringWithDamping: 0.2, initialSpringVelocity: 0))
         
         beginGame.runAction(SKAction.moveToY(-1000, duration: 2.2, delay: 2, usingSpringWithDamping: 0.2, initialSpringVelocity: 0))
         
@@ -743,9 +868,9 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
             self.childNodeWithName("gameOver")?.removeAllActions()
             self.childNodeWithName("gameOver")?.removeAllChildren()
             
-            self.bestScore.removeFromParent()
-            self.bestScore.removeAllActions()
-            self.bestScore.removeAllChildren()
+            self.recentScore.removeFromParent()
+            self.recentScore.removeAllActions()
+            self.recentScore.removeAllChildren()
             
             self.gameCenter.removeFromParent()
             self.gameCenter.removeAllChildren()
@@ -820,6 +945,7 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
         numberBox24.indexs = array[23]
         
         for box in boxArray {
+            box.alpha = 1
             box.update()
         }
         
@@ -831,17 +957,15 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
         numberLabel.text = "\(number)"
         
         self.circularTimer.stopCountdown()
-        let num = countdownTime - 5.0
-        countdownTime = num
         self.circularTimer.countdown(countdownTime) { (Void) in
-            self.gameEnd()
+            self.gameEnd(false)
         }
         
     }
     
     func loose() {
         
-        gameEnd()
+        gameEnd(false)
     }
     
     func point() {
@@ -863,7 +987,8 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
             self.circularTimer.progress = CGFloat(pro)
         }
     }
-       //MARK: In App Puchases Methods
+    
+    //MARK: In App Puchases Methods
     func restoreTapped() {
         Products.store.restoreCompletedTransactions()
     }
@@ -888,6 +1013,7 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
     }
       
     func productPurchased(notification: NSNotification) {
+        MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
         let productIdentifier = notification.object as! String
         for (_, product) in products.enumerate() {
             if product.productIdentifier == productIdentifier {
@@ -896,14 +1022,14 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
                     let defaults = NSUserDefaults.standardUserDefaults()
                     defaults.setBool(true, forKey: "hasRemovedAds")
                     
-                    NSNotificationCenter.defaultCenter().postNotificationName("areAdsGone", object: self)
+                    //NSNotificationCenter.defaultCenter().postNotificationName("areAdsGone", object: self)
                 }
                 break
             }
         }
     }
     
-    //MARK: GameCenter Methods
+    //MARK: Other Methods
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        /* Called when a touch begins */
@@ -919,7 +1045,26 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
         
         let node = self.nodeAtPoint(location)
         
-        if hasGameEnded {
+        if isShowingContinue {
+            if no.containsPoint(location) {
+                continueTimer.invalidate()
+                
+                for node in continueArray {
+                    //node.runAction(SKAction.fadeOutWithDuration(1))
+                    node.removeFromParent()
+                    addStuff()
+                }
+                
+            };
+            
+            if free.containsPoint(location) {
+                if Supersonic.sharedInstance().isAdAvailable() {
+                    Supersonic.sharedInstance().showRVWithPlacementName("Game_Over")
+                }
+            }
+        }
+        
+        if hasGameEnded && isShowingContinue != true {
             if gameCenter.containsPoint(location) {
                 FTLogging().FTLog("game center")
                 
@@ -939,19 +1084,18 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
             if sound.containsPoint(location) {
                 FTLogging().FTLog("sound")
                 sound.runAction(k.Sounds.blopAction1)
-                var touchSound = 0
-                
-                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                let touchSound = NSUserDefaults.standardUserDefaults().integerForKey("sound")
                 
                 if touchSound == 0 {
-                    touchSound += 1
-                    if appDelegate.backgroundMusicPlayer.playing == true {
-                        appDelegate.backgroundMusicPlayer.stop()
-                    } else if touchSound == 1 {
-                        touchSound -= 1
-                        appDelegate.backgroundMusicPlayer.play()
-                    }
+                    NSUserDefaults.standardUserDefaults().setInteger(1, forKey: "sound")
+                    NSNotificationCenter.defaultCenter().postNotificationName("stopMusic", object: nil)
+                };
+                
+                if touchSound == 1 {
+                    NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "sound")
+                    NSNotificationCenter.defaultCenter().postNotificationName("playMusic", object: nil)
                 }
+
 
             };
             
@@ -959,6 +1103,11 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
                 let vc = self.view?.window?.rootViewController
                 let alert = UIAlertController(title: "How To Play", message: "Simply tap the tile with the number that's displayed at the bottom of the screen while avoid to run out of time! \r\nHow fast can you tap? \r\n\r\nHow long can you last? \r\n\r\nMade by Jesse Onolememen 2016 \r\nIcons Provided by FreePik/FlatIcon", preferredStyle: .Alert) // 1
                 let firstAction = UIAlertAction(title: "Yeah I got it!", style: .Default) { (alert: UIAlertAction!) -> Void in
+                    let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+                    loadingNotification.mode = .Indeterminate
+                    loadingNotification.labelText = "Loading"
+                    loadingNotification.userInteractionEnabled = false
+                    
                     NSLog("You pressed button one")
                     
                 } // 2
@@ -978,7 +1127,7 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
                 
                 let textToShare = "I just tapped \(numbersTapped) tiles in a FREE game called 'Number Tap' that's made by a 13-YEAR-OLD! Download Today!"
                 
-                if let myWebsite = NSURL(string: "https://itunes.apple.com/us/app/number-tap!/id1097322101?ls=1&mt=8") {
+                if let myWebsite = NSURL(string: "") {
                     let objectsToShare = [textToShare, myWebsite]
                     let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
                     
@@ -992,6 +1141,11 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
             }
             if removeAds.containsPoint(location) {
                 FTLogging().FTLog("remove ads")
+                let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+                loadingNotification.mode = .Indeterminate
+                loadingNotification.labelText = "Loading"
+                loadingNotification.userInteractionEnabled = false
+                
                 removeAds.runAction(k.Sounds.blopAction1)
                 purchaseProduct(0)
             }
@@ -1024,90 +1178,8 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
             resetScene()
         };
         
-        if node.name == "beginGameButton" {
-           
-            for box in boxArray {
-                box.flip()
-            }
-            
-            counterHasFinished = true
-            
-            self.tapOnLabel.fontColor = UIColor.whiteColor()
-            self.tapOnLabel.fontSize = 30
-            self.tapOnLabel.text = "TAP NUMBER:"
-            self.tapOnLabel.horizontalAlignmentMode = .Center
-            self.tapOnLabel.verticalAlignmentMode = .Center
-            self.tapOnLabel.position = CGPointMake(CGRectGetMidX(self.frame) - 25, -90)
-            self.addChild(self.tapOnLabel)
-            
-            self.number = self.randomNumber()
-            
-            self.numberLabel.fontColor = UIColor(rgba: "#e74c3c")
-            self.numberLabel.fontSize = 38
-            self.numberLabel.text = String(self.number)
-            self.numberLabel.horizontalAlignmentMode = .Center
-            self.numberLabel.verticalAlignmentMode = .Center
-            self.numberLabel.position = CGPointMake(self.tapOnLabel.position.x + 130, -90)
-            self.addChild(self.numberLabel)
-
-            
-            let timerSpace = SKTexture(imageNamed: "timerSpace")
-            self.circularTimer.position = CGPointMake(self.numberBox4.position.x, 850)
-            self.circularTimer.zPosition = 8
-            self.circularTimer.radius = timerSpace.size().width / 2
-            self.circularTimer.width = 8.0
-            self.circularTimer.zPosition = 2
-            self.circularTimer.color = UIColor(rgba: "#e74c3c")
-            self.circularTimer.backgroundColor = UIColor(rgba: "#434343")
-            
-            self.addChild(self.circularTimer)
-            
-            self.scoreLabel.position = CGPointMake(self.circularTimer.position.x - 320, self.circularTimer.position.y)
-            self.scoreLabel.horizontalAlignmentMode = .Left
-            self.scoreLabel.fontColor = UIColor(rgba: "#e74c3c")
-            self.addChild(self.scoreLabel)
-            
-            self.numbersTap.text = "NUMBERS TAPPED"
-            self.numbersTap.position = CGPointMake(self.scoreLabel.position.x + 15, self.scoreLabel.position.y)
-            self.numbersTap.horizontalAlignmentMode = .Left
-            self.numbersTap.fontColor = UIColor.whiteColor()
-            self.numbersTap.fontSize = 25
-            self.numbersTap.zPosition = self.scoreLabel.zPosition
-            self.addChild(self.numbersTap)
-            
-            self.pause.position = CGPointMake(self.scoreLabel.position.x, self.scoreLabel.position.y - 32)
-            self.pause.name = "pause"
-            self.pause.zPosition = 2
-            self.addChild(self.pause)
-            
-            self.homeButton.position = CGPointMake(self.pause.position.x + 45, self.pause.position.y)
-            self.homeButton.name = "homeButton"
-            self.homeButton.zPosition = 2
-            self.addChild(self.homeButton)
-            
-            self.replay.position = CGPointMake(self.homeButton.position.x + 45, self.homeButton.position.y)
-            self.replay.name = "replay"
-            self.replay.zPosition = 2
-            self.addChild(self.replay)
-            
-            self.record.position = CGPointMake(self.replay.position.x + 45, self.replay.position.y)
-            self.record.name = "record"
-            self.record.zPosition = 2
-            self.addChild(self.record)
-            
-            self.topArray.append(self.circularTimer)
-            self.topArray.append(self.scoreLabel)
-            self.topArray.append(self.numbersTap)
-            self.topArray.append(self.circularTimer)
-            self.topArray.append(self.pause)
-            self.topArray.append(self.homeButton)
-            self.topArray.append(self.replay)
-            self.topArray.append(self.record)
-            
-            
-        }
         
-        if hasRun == 0 && counterHasFinished {
+        if hasRun == 0 && counterHasFinished && isShowingContinue == false{
             
             for box in boxArray {
                 if box.containsPoint(location) {
@@ -1128,6 +1200,17 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
             }
             
       }
+        
+        if currentMode == .FirstLaunch {
+            if node.name == "tut1" {
+                let tutorial = node as! TutorialBox
+                
+                let scale = SKAction.scaleTo(0.005, duration: 2, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0)
+                tutorial.runAction(scale) {
+                    
+                }
+            }
+        }
 
     }
     
@@ -1183,6 +1266,12 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
         }
     }
     
+    func scaleForiPadMini(node : SKSpriteNode, scale : CGFloat) {
+        if UIDevice.currentDevice().type == .iPadMini1 {
+            node.setScale(scale)
+        }
+    }
+    
     func screenRecorder(screenRecorder: RPScreenRecorder, didStopRecordingWithError error: NSError, previewViewController: RPPreviewViewController?) {
         
     }
@@ -1207,10 +1296,38 @@ class GameScene: SKScene, RPScreenRecorderDelegate {
         }
     }
    
-    override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+    func rewardUser(notification : NSNotification) {
+        
+        let videoSaveDefault = NSUserDefaults.standardUserDefaults().integerForKey("videoSave")
+        var videoSave = 0
+        
+        if videoSaveDefault == 0 {
+            videoSave += 1
+            NSUserDefaults.standardUserDefaults().setInteger(videoSave, forKey: "videoSave")
+        }
+        
+        for node in continueArray {
+            node.removeFromParent()
+            self.childNodeWithName("whiteBG")?.removeFromParent()
+        }
+        
+        continueTimer.invalidate()
+        isShowingContinue = false
+        
+        let prog = NSUserDefaults.standardUserDefaults().floatForKey("lastProgress")
+        
+        if prog == 0.0 {
+            self.circularTimer.progress = CGFloat(prog + 0.11111111)
+            self.circularTimer.countdown(NSTimeInterval(self.ckTime - 5)) { (Void) in
+                self.gameEnd(true)
+            }
+        } else {
+            self.circularTimer.progress = CGFloat(prog)
+            self.circularTimer.countdown(NSTimeInterval(self.ckTime)) { (Void) in
+                self.gameEnd(true)
+            }
+        }
     }
-    
     
 }
 

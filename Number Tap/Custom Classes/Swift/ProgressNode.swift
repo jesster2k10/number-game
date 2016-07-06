@@ -200,9 +200,8 @@ class CountdownNode: SKSpriteNode {
     let counterText = SKLabelNode(fontNamed: "Montserrat-SemiBold")
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
-        super.init(texture: nil, color: UIColor.clearColor(), size: CGSizeMake(0, 0))
+        super.init(texture: SKTexture(imageNamed: "counter"), color: UIColor.clearColor(), size: CGSizeMake(0, 0))
         
-        self.texture = SKTexture(imageNamed: "counter")
         self.zPosition = 11
         
         counterText.text = String(counter)
@@ -212,17 +211,21 @@ class CountdownNode: SKSpriteNode {
         counterText.fontSize = 132
         counterText.zPosition = 20
         addChild(counterText)
+        
+        NSUserDefaults.standardUserDefaults().setInteger(counter, forKey: "counter")
     }
     
     func counterUpdate () {
         FTLogging().FTLog("update by -1")
-        if counter < 0 {
+        
+        if counter > 0 {
         counter -= 1
-        counterText.text = "\(counter)"
+            if counter != 0 {counterText.text = "\(counter)"}
         } else {
-            counterText.text = "GO!"
+            counterText.text = NSLocalizedString("go-countdown", comment: "go")
             counterTimer.invalidate()
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "init")
+            NSNotificationCenter.defaultCenter().postNotificationName("counter", object: nil, userInfo: ["counter" : counter])
+            //NSUserDefaults.standardUserDefaults().setBool(true, forKey: "init")
             
         }
     }

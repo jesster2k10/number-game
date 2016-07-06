@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -18,16 +18,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="Default-portrait@3x~iphone6+.png" translatesAutoresizingMaskIntoConstraints="NO" id="vTj-HD-jRP">
-                                <rect key="frame" x="0.0" y="-3" width="600" height="603"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lightblue.png" translatesAutoresizingMaskIntoConstraints="NO" id="eQa-gk-ASK">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flatbox-text-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Cls-V7-9Xc">
+                                <rect key="frame" x="31" y="237" width="538" height="125"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="vTj-HD-jRP" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="4Kj-Qd-wzb"/>
-                            <constraint firstAttribute="trailing" secondItem="vTj-HD-jRP" secondAttribute="trailing" id="7t8-Z5-puJ"/>
-                            <constraint firstItem="vTj-HD-jRP" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" constant="-3" id="JHb-po-jpt"/>
-                            <constraint firstItem="vTj-HD-jRP" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="tQG-D4-JAZ"/>
+                            <constraint firstItem="Cls-V7-9Xc" firstAttribute="centerX" secondItem="eQa-gk-ASK" secondAttribute="centerX" id="9dY-g7-yIw"/>
+                            <constraint firstItem="eQa-gk-ASK" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="DcI-cT-XAq"/>
+                            <constraint firstAttribute="trailing" secondItem="eQa-gk-ASK" secondAttribute="trailing" id="Fjg-66-jKh"/>
+                            <constraint firstItem="Cls-V7-9Xc" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="217" id="Xgd-Xu-qOg"/>
+                            <constraint firstItem="Cls-V7-9Xc" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="11" id="YRu-uK-5fm"/>
+                            <constraint firstItem="eQa-gk-ASK" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="bHo-Sf-qvB"/>
+                            <constraint firstItem="Cls-V7-9Xc" firstAttribute="centerY" secondItem="eQa-gk-ASK" secondAttribute="centerY" id="cqI-ge-uiX"/>
+                            <constraint firstItem="eQa-gk-ASK" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="jOG-06-ReE"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -37,6 +44,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Default-portrait@3x~iphone6+.png" width="1080" height="1920"/>
+        <image name="flatbox-text-icon.png" width="1035" height="195"/>
+        <image name="lightblue.png" width="1242" height="2204"/>
     </resources>
 </document>

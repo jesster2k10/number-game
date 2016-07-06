@@ -11,6 +11,7 @@ import SpriteKit
 import GameKit
 import iAd
 import PermissionScope
+import AVFoundation
 
 class GameViewController: UIViewController, ADBannerViewDelegate {
     
@@ -21,10 +22,17 @@ class GameViewController: UIViewController, ADBannerViewDelegate {
     var bannerView: ADBannerView!
     let pscope = PermissionScope()
     
+    var backgroundMusicPlayer = AVAudioPlayer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let scene = HomeScene()
+        
+        showScene()
+    }
+    
+    func showScene() {
+        let fade = SKTransition.fadeWithColor(UIColor(rgba: "#434343"), duration: 6)
+        let scene = Shoot(size: CGSizeMake(640, 960), mode: .Endless)
         
         // Configure the view.
         let skView = self.view as! SKView
@@ -35,102 +43,57 @@ class GameViewController: UIViewController, ADBannerViewDelegate {
         /* Set the scale mode to scale to fit the window */
         scene.scaleMode = .AspectFill
         
-        skView.presentScene(scene)
+        skView.presentScene(scene, transition: fade)
         
         GameKitHelper.sharedGameKitHelper.authenticateLocalPlayer(self)
-
-        iAd()
         
-        // Set up permissions
-        pscope.addPermission(NotificationsPermission(notificationCategories: nil),
-                             message: "We use this to send you\r\nspam and love notes")
-        pscope.addPermission(PhotosPermission(),
-                             message: "We use this to save\r\ngameplay to your camera roll.")
-        
-        // Show dialog with callbacks
-        pscope.show({ finished, results in
-            print("got results \(results)")
-            }, cancelled: { (results) -> Void in
-                print("thing was cancelled")
-        })
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.checkIfAds), name: "areAdsGone", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.hideAds), name: "hideAds", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.showAds), name: "showAds", object: nil)
-    }
-    
-    func hideAds (notification : NSNotification) {
-        UIView.animateWithDuration(1.0) { () -> Void in
-            
-            self.bannerView.alpha = 0
+        if NSUserDefaults.isFirstLaunch() {
+            // Set up permissions
+            pscope.addPermission(NotificationsPermission(notificationCategories: nil),
+                                 message: "We use this to send you\r\nspam and love notes")
+            pscope.addPermission(PhotosPermission(),
+                                 message: "We use this to save\r\ngameplay to your camera roll.")
+            pscope.show()
         }
+        
+        playBackgroundMusic(k.Sounds.blipBlop)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.playMusic), name: "playMusic", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.stopMusic), name: "stopMusic", object: nil)
 
     }
     
-    func showAds (notification : NSNotification) {
-        UIView.animateWithDuration(1.0) { () -> Void in
-            
-            self.bannerView.alpha = 1
+    func playBackgroundMusic(filename: String) {
+        let url = NSBundle.mainBundle().URLForResource(filename, withExtension: nil)
+        guard let newURL = url else {
+            print("Could not find file: \(filename)")
+            return
         }
-        
-    }
-    
-    
-    func checkIfAds (notification: NSNotification) {
-        if notification.name == "areAdsGone" {
-            FTLogging().FTLog("Ads are gone")
-            
-            UIView.animateWithDuration(1.0) { () -> Void in
-                
-                self.bannerView.alpha = 0
-                self.bannerView.removeFromSuperview()
-            }
-            
+        do {
+            backgroundMusicPlayer = try AVAudioPlayer(contentsOfURL: newURL)
+            backgroundMusicPlayer.numberOfLoops = -1
+            backgroundMusicPlayer.prepareToPlay()
+            backgroundMusicPlayer.play()
+        } catch let error as NSError {
+            print(error.description)
         }
     }
     
-    func iAd() {
-        
-        let def = NSUserDefaults.standardUserDefaults()
-        if let _ = def.objectForKey("hasRemovedAds") as? Bool {
-            
-            FTLogging().FTLog("all ads are gone")
-        } else {
-            
-            bannerView = ADBannerView(adType: .Banner)
-            bannerView.translatesAutoresizingMaskIntoConstraints = false
-            bannerView.delegate = self
-            bannerView.hidden = true
-            view.addSubview(bannerView)
-            
-            let viewsDictionary = ["bannerView": bannerView]
-            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[bannerView]|", options: [], metrics: nil, views: viewsDictionary))
-            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[bannerView]|", options: [], metrics: nil, views: viewsDictionary))
-                
+    func stopMusic() {
+        FTLogging().FTLog("\n\n\n yea bitch \n\n\n")
+        if backgroundMusicPlayer.playing == true {
+            backgroundMusicPlayer.stop()
         }
     }
     
-    func bannerViewDidLoadAd(banner: ADBannerView!) {
-
-        FTLogging().FTLog("Ad Received")
-        UIView.animateWithDuration(1.0) { () -> Void in
-            
-            self.bannerView.alpha = 1.0
-            self.bannerView.hidden = false
-        }
-    
-
-    }
-    
-    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
-        UIView.animateWithDuration(1.0) { () -> Void in
-            
-            self.bannerView.alpha = 0
-            self.bannerView.hidden = true
+    func playMusic() {
+        if backgroundMusicPlayer.playing == false {
+            backgroundMusicPlayer.prepareToPlay()
+            backgroundMusicPlayer.play()
         }
     }
     
-    override func shouldAutorotate() -> Bool {
+        override func shouldAutorotate() -> Bool {
         return true
     }
 

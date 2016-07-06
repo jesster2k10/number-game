@@ -10,28 +10,19 @@ enum ShortcutIdentifier: String {
     
 }
 
-import Foundation
-
-public class FTLogging {
-    
-    private var isDebug: Bool
-    
-    init() {
-        self.isDebug = false
-    }
-    
-    public func setup (isDebug: Bool) {
-        self.isDebug = isDebug
-        print("Project is Debug = \(isDebug)")
-    }
-    
-    public func FTLog<T> (value : T) {
-        if isDebug == true {
-            print(value)
+extension Array {
+    mutating func removeObject<U: Equatable>(object: U) -> Bool {
+        for (idx, objectToCompare) in self.enumerate() {  //in old swift use enumerate(self)
+            if let to = objectToCompare as? U {
+                if object == to {
+                    self.removeAtIndex(idx)
+                    return true
+                }
+            }
         }
+        return false
     }
 }
-
 
 extension NSTimer {
     
@@ -216,6 +207,7 @@ public enum Model : String {
     iPadMini1      = "iPad Mini 1",
     iPadMini2      = "iPad Mini 2",
     iPadMini3      = "iPad Mini 3",
+    iPadMini4      = "iPad Mini 4",
     iPadAir1       = "iPad Air 1",
     iPadAir2       = "iPad Air 2",
     iPhone6        = "iPhone 6",
@@ -273,6 +265,8 @@ public extension UIDevice {
             "iPad4,7"   : .iPadMini3,
             "iPad4,8"   : .iPadMini3,
             "iPad4,9"   : .iPadMini3,
+            "iPad5,1"   : .iPadMini4,
+            "iPad5,2"   : .iPadMini4,
             "iPhone7,1" : .iPhone6plus,
             "iPhone7,2" : .iPhone6,
             "iPhone8,1" : .iPhone6S,

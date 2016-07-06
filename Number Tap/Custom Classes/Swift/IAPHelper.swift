@@ -7,6 +7,7 @@
 //
 
 import StoreKit
+import MBProgressHUD
 
 /// Notification that is generated when a product is purchased.
 public let IAPHelperProductPurchasedNotification = "IAPHelperProductPurchasedNotification"
@@ -161,6 +162,7 @@ extension IAPHelper: SKPaymentTransactionObserver {
         if transaction.error!.code != SKErrorCode.PaymentCancelled .rawValue{
             FTLogging().FTLog("Transaction error: \(transaction.error!.localizedDescription)")
         }
+        NSNotificationCenter.defaultCenter().postNotificationName("cancelled", object: nil)
         SKPaymentQueue.defaultQueue().finishTransaction(transaction)
     }
 }

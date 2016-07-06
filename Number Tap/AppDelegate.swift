@@ -14,7 +14,7 @@ import iAd
 import AVFoundation
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, ChartboostDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, ChartboostDelegate, SupersonicRVDelegate {
 
     var window: UIWindow?
     var type: NotificationType?
@@ -23,29 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ChartboostDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        Chartboost.startWithAppId(k.keys.cbAppId, appSignature: k.keys.cbAppSignature, delegate: self)
-        Chartboost.setAutoCacheAds(true)
-        Chartboost.setShouldPrefetchVideoContent(true)
-        Chartboost.setShouldDisplayLoadingViewForMoreApps(true)
         
-        AdColony.configureWithAppID(k.keys.ADAppID, zoneIDs: k.keys.ADZoneIDs, delegate: nil, logging: true)
-                
-        if NSUserDefaults.standardUserDefaults().boolForKey("hasLaunchedOnce")
-        {
-            Appirater.setAppId("1097322101")
-            Appirater.setDaysUntilPrompt(7)
-            Appirater.setUsesUntilPrompt(5)
-            Appirater.setSignificantEventsUntilPrompt(-1)
-            Appirater.setTimeBeforeReminding(2)
-            Appirater.setDebug(false)
-            Appirater.appLaunched(true)
-        }
-        else
-        {
-            // This is the first launch ever
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasLaunchedOnce")
-            NSUserDefaults.standardUserDefaults().synchronize()
-        }
+        Appirater.setAppId("1097322101")
+        Appirater.setDaysUntilPrompt(7)
+        Appirater.setUsesUntilPrompt(5)
+        Appirater.setSignificantEventsUntilPrompt(-1)
+        Appirater.setTimeBeforeReminding(2)
+        Appirater.setDebug(false)
+        Appirater.appLaunched(true)
         
         for lNotification in UIApplication.sharedApplication().scheduledLocalNotifications! {
             if lNotification.alertBody == notificationMessage(.ComeBack) {
@@ -60,6 +45,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ChartboostDelegate {
         Fabric.with([Crashlytics.self])
         
         FTLogging().setup(true)
+        
+        
+        if ((NSUserDefaults.standardUserDefaults().boolForKey("adsGone") == true) != nil){
+            Chartboost.startWithAppId(k.keys.cbAppId, appSignature: k.keys.cbAppSignature, delegate: self)
+            Chartboost.setAutoCacheAds(true)
+            Chartboost.setShouldPrefetchVideoContent(true)
+            Chartboost.setShouldDisplayLoadingViewForMoreApps(true)
+            
+            Supersonic.sharedInstance()
+            SupersonicIntegrationHelper.validateIntegration()
+            
+            var idfv = NSUUID().UUIDString
+            Supersonic.sharedInstance().setRVDelegate(self)
+            Supersonic.sharedInstance().initRVWithAppKey("4d9a08fd", withUserId: idfv)
+            
+            NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "videoSave")
+        }
+        
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         return true
     }
@@ -90,10 +94,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ChartboostDelegate {
         
         let tempDate = calendar.dateFromComponents(components)!
         let comps = NSDateComponents()
-        comps.day = 7
+        comps.day = 2
         let fireDateOfNotification = calendar.dateByAddingComponents(comps, toDate: tempDate, options:[])
         
         scheduleNotificationWith(message: notificationMessage(.ComeBack)!, badgeNumber: 1, fireDate: fireDateOfNotification!)
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("pauseGame", object: nil)
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
@@ -102,6 +108,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ChartboostDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        FBSDKAppEvents.activateApp()
     }
 
     func applicationWillTerminate(application: UIApplication) {
@@ -113,8 +120,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ChartboostDelegate {
 
     }
     
-    //MARK: Notifications
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+    }
     
+    //MARK: Supersonic ADS :: RVDelegate
+    func supersonicRVInitSuccess() {
+        FTLogging().FTLog("Initialised rewarded video")
+    }
+    
+    func supersonicRVInitFailedWithError(error: NSError!) {
+        FTLogging().FTLog("Rewarded video init failed with error \(error.localizedDescription)")
+    }
+    
+    func supersonicRVAdAvailabilityChanged(hasAvailableAds: Bool) {
+        FTLogging().FTLog("Avaliability changed")
+    }
+    
+    func supersonicRVAdRewarded(placementInfo: SupersonicPlacementInfo!) {
+        FTLogging().FTLog("Ad Rewarded!")
+        NSNotificationCenter.defaultCenter().postNotificationName("videoRewarded", object: nil, userInfo: ["rewardAmount" : placementInfo.rewardAmount,
+             "rewardName"   : placementInfo.rewardName])
+    }
+    
+    func supersonicRVAdOpened() {
+        FTLogging().FTLog("Ad Opened")
+        NSNotificationCenter.defaultCenter().postNotificationName("videoOpened", object: nil)
+    }
+    
+    func supersonicRVAdClosed() {
+        FTLogging().FTLog("Ad closed")
+        NSNotificationCenter.defaultCenter().postNotificationName("videoClosed", object: nil)
+    }
+    
+    func supersonicRVAdStarted() {
+        FTLogging().FTLog("Ad Started")
+    }
+    
+    func supersonicRVAdEnded() {
+        FTLogging().FTLog("Ad Ended")
+    }
+    func supersonicRVAdFailedWithError(error: NSError!) {
+        FTLogging().FTLog("Rewarded video  failed with error \(error.localizedDescription)")
+
+    }
+    
+    //MARK: Notification
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         application.applicationIconBadgeNumber = 0

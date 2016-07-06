@@ -20,6 +20,13 @@ enum boxStates : UInt32 {
     case update = 2
 }
 
+enum tutorialTypes : String {
+    case Regular = "tutorialBig"
+    case BigRegular = "bigRegular"
+    case Down = "tutorialDown"
+    case BigDown = "bigDown"
+}
+
 class NumberBox: SKSpriteNode {
     var currentTexture = SKTexture()
     
@@ -28,6 +35,7 @@ class NumberBox: SKSpriteNode {
     
     var array = [Int]()
     var indexs = 0
+    var index = 0
     
     internal var currentState : boxStates = .normal
     
@@ -164,6 +172,12 @@ class NumberBox: SKSpriteNode {
         self.runAction(SKAction.scaleTo(1, duration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0))
     }
     
+    func reScale (withCompletion completion: () -> ()) {
+        self.runAction(SKAction.scaleTo(0, duration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0)) { 
+            completion()
+        }
+    }
+    
     func randomSequenceGenerator(min: Int, max: Int) -> () -> Int {
         var numbers: [Int] = []
         return {
@@ -188,181 +202,116 @@ class NumberBox: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-class PopUp : SKSpriteNode {
+class TutorialBox : SKSpriteNode {
+    
     var currentTexture = SKTexture()
+    var currentType : tutorialTypes!
+    var hasAnimationFinished = false
     
-    let yesButton = SKSpriteNode(imageNamed: "yes")
-    let noButton = SKSpriteNode(imageNamed: "no")
-    let timeButton = SKSpriteNode(imageNamed: "timeBG")
-    let plus = SKSpriteNode(imageNamed: "plus")
-    let minus = SKSpriteNode(imageNamed: "minus")
+    let lineOne = SKLabelNode(fontNamed: "Montserrat-SemiBold")
+    let lineTwo = SKLabelNode(fontNamed: "Montserrat-SemiBold")
+    let lineThree = SKLabelNode(fontNamed: "Montserrat-SemiBold")
     
-    let timeSecondsText = SKLabelNode(fontNamed: "Montserrat-Regular")
-    let timeText = SKLabelNode(fontNamed: "Montserrat-Regular")
-    let memoryText = SKLabelNode(fontNamed: "Montserrat-SemiBold")
-    
-    let youHaveText = SKLabelNode(fontNamed: "Montserrat-Light")
-    let gameTimeText = SKLabelNode(fontNamed: "Montserrat-Light")
-    let secondsText = SKLabelNode(fontNamed: "Montserrat-Light")
-    let toRememberText = SKLabelNode(fontNamed: "Montserrat-Light")
-    let allText = SKLabelNode(fontNamed: "Montserrat-Regular")
-    let theTilesText = SKLabelNode(fontNamed: "Montserrat-Light")
-    
-    var time = 30
-    var currentTime = 30
-    
-    let normText = SKTexture(imageNamed: "popup")
-    
-    init() {
-        currentTexture = normText
+    init(withType type: tutorialTypes, lineOne l1: String, lineTwo l2: String?, lineThree l3: String?, fontSize size: CGFloat) {
+        currentTexture = SKTexture(imageNamed: tutorialTypes.Regular.rawValue)
         super.init(texture: currentTexture, color: UIColor.clearColor(), size: currentTexture.size())
         
-        self.zPosition = 10
-        self.userInteractionEnabled = true
+        currentType = type
         
-        yesButton.position = CGPointMake(0.758, -110.595)
-        yesButton.zPosition = 33
-        yesButton.userInteractionEnabled = true
-        yesButton.name = "yesButton"
-        addChild(yesButton)
-        
-        noButton.position = CGPointMake(0.758, -159.627)
-        noButton.zPosition = 33
-        addChild(noButton)
-        
-        timeButton.position = CGPointMake(0.375, -51.727)
-        timeButton.zPosition = 33
-        addChild(timeButton)
-        
-        plus.position = CGPointMake(-90.229, -54)
-        plus.setScale(2)
-        plus.zPosition = 33
-        addChild(plus)
-        
-        minus.position = CGPointMake(88.531, -54)
-        minus.zPosition = 33
-        minus.setScale(2)
-        addChild(minus)
-        
-        timeSecondsText.text = "SECONDS"
-        timeSecondsText.fontSize = 16
-        timeSecondsText.fontColor = UIColor.whiteColor()
-        timeSecondsText.zPosition = 33
-        timeSecondsText.horizontalAlignmentMode = .Center
-        timeSecondsText.verticalAlignmentMode = .Baseline
-        timeSecondsText.position = CGPointMake(13.763, -5.538)
-        timeButton.addChild(timeSecondsText)
-        
-        timeText.text = String(time)
-        timeText.fontSize = 16
-        timeText.fontColor = UIColor.whiteColor()
-        timeText.zPosition = 33
-        timeText.horizontalAlignmentMode = .Center
-        timeText.verticalAlignmentMode = .Baseline
-        timeText.position = CGPointMake(-39.237, -5.538)
-        timeButton.addChild(timeText)
-        
-        memoryText.text = "MEMORY MODE"
-        memoryText.position = CGPointMake(-0.5, 146.859)
-        memoryText.horizontalAlignmentMode = .Center
-        memoryText.verticalAlignmentMode = .Baseline
-        memoryText.zPosition = 33
-        memoryText.fontColor = UIColor.whiteColor()
-        memoryText.fontSize = 28.5
-        addChild(memoryText)
-        
-        youHaveText.text = "you have"
-        youHaveText.position = CGPointMake(1.882, 105.636)
-        youHaveText.horizontalAlignmentMode = .Center
-        youHaveText.verticalAlignmentMode = .Baseline
-        youHaveText.fontColor = UIColor.whiteColor()
-        youHaveText.fontSize = 24
-        youHaveText.zPosition = 33
-        addChild(youHaveText)
-        
-        gameTimeText.text = String(currentTime)
-        gameTimeText.position = CGPointMake(2.882, 36.637)
-        gameTimeText.horizontalAlignmentMode = .Center
-        gameTimeText.verticalAlignmentMode = .Baseline
-        gameTimeText.fontColor = UIColor.whiteColor()
-        gameTimeText.fontSize = 80
-        gameTimeText.zPosition = 33
-        addChild(gameTimeText)
-        
-        secondsText.text = "seconds"
-        secondsText.position = CGPointMake(3.882, 4.368)
-        secondsText.horizontalAlignmentMode = .Center
-        secondsText.verticalAlignmentMode = .Baseline
-        secondsText.fontColor = UIColor.whiteColor()
-        secondsText.fontSize = 24
-        secondsText.zPosition = 33
-        addChild(secondsText)
-        
-        toRememberText.text = "to remember"
-        toRememberText.position = CGPointMake(-44.347, -16.632)
-        toRememberText.horizontalAlignmentMode = .Center
-        toRememberText.verticalAlignmentMode = .Baseline
-        toRememberText.fontColor = UIColor.whiteColor()
-        toRememberText.fontSize = 15
-        toRememberText.zPosition = 33
-        addChild(toRememberText)
-        
-        allText.text = "ALL"
-        allText.position = CGPointMake(14.653, -16.632)
-        allText.horizontalAlignmentMode = .Center
-        allText.verticalAlignmentMode = .Baseline
-        allText.fontColor = UIColor.whiteColor()
-        allText.fontSize = 14
-        allText.zPosition = 33
-        addChild(allText)
-        
-        theTilesText.text = "the lines"
-        theTilesText.position = CGPointMake(62.653, -16.632)
-        theTilesText.horizontalAlignmentMode = .Center
-        theTilesText.verticalAlignmentMode = .Baseline
-        theTilesText.fontColor = UIColor.whiteColor()
-        theTilesText.fontSize = 15
-        theTilesText.zPosition = 33
-        addChild(theTilesText)
-        
-        for child in self.children {
-            child.userInteractionEnabled = true
-        }
-    }
-    
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        for touch in touches {
-            let location = touch.locationInNode(self)
-            
-            handleTouchedLocation(location)
+        if currentType == .BigDown || currentType == .Down {
+            zRotation = 180
         }
         
-    }
-    
-    func handleTouchedLocation (location: CGPoint) {
+        lineOne.zPosition = 999
+        lineTwo.zPosition = 999
+        lineThree.zPosition = 999
         
-        if yesButton.containsPoint(location) {
-            self.runAction(SKAction.moveToY(1000, duration: 1), completion: {
-                self.removeAllActions()
-                self.removeAllChildren()
-                self.removeFromParent()
-            })
+        
+        if l2 == nil && l3 == nil {
             
-            NSNotificationCenter.defaultCenter().postNotificationName("initScene", object: nil)
+            lineOne.verticalAlignmentMode = .Baseline
+            lineOne.horizontalAlignmentMode = .Center
+            lineOne.text = l1
+            lineOne.fontSize = size
+            lineOne.fontColor = UIColor.blackColor()
+            //lineOne.position = CGPointMake(-0.5, 0.947)
+            addChild(lineOne)
             
+        } else if l2 != nil || l3 != nil{
+            
+            lineOne.verticalAlignmentMode = .Baseline
+            lineOne.horizontalAlignmentMode = .Center
+            lineOne.text = l1
+            lineOne.fontSize = 15
+            lineOne.fontColor = UIColor.blackColor()
+            lineOne.position = CGPointMake(-1.013, 17.7)
+            addChild(lineOne)
+            
+            lineTwo.verticalAlignmentMode = .Baseline
+            lineTwo.horizontalAlignmentMode = .Center
+            lineTwo.text = l2
+            lineTwo.fontSize = 15
+            lineTwo.fontColor = UIColor.blackColor()
+            lineTwo.position = CGPointMake(-1.013, 2.081)
+            addChild(lineTwo)
+            
+            lineThree.verticalAlignmentMode = .Baseline
+            lineThree.horizontalAlignmentMode = .Center
+            lineThree.text = l3
+            lineThree.fontSize = 15
+            lineThree.fontColor = UIColor.blackColor()
+            lineThree.position = CGPointMake(-1.013, -13.538)
+            addChild(lineThree)
+            
+        } else if l2 != nil && l3 == nil {
+            
+            lineOne.verticalAlignmentMode = .Top
+            lineOne.horizontalAlignmentMode = .Center
+            lineOne.text = l1
+            lineOne.fontSize = 15
+            lineOne.fontColor = UIColor.blackColor()
+            lineOne.position = CGPointMake(-0.771, 25.947)
+            addChild(lineOne)
+            
+            lineTwo.verticalAlignmentMode = .Baseline
+            lineTwo.horizontalAlignmentMode = .Center
+            lineTwo.text = l2!
+            lineTwo.fontSize = 15
+            lineTwo.fontColor = UIColor.blackColor()
+            lineTwo.position = CGPointMake(-0.771, -8.053)
+            addChild(lineTwo)
         }
+        setScale(0)
     }
     
-    init(texture: SKTexture!) {
-        super.init(texture: texture, color: UIColor.clearColor(), size: texture.size())
+    func bounce () {
+        var scale = SKAction()
+        
+        if currentType == .BigRegular || currentType == .BigDown {
+            scale = SKAction.scaleTo(1.088, duration: 2, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0)
+        } else {
+            
+            scale = SKAction.scaleTo(1, duration: 2, delay: 0.5, usingSpringWithDamping: 0.2, initialSpringVelocity: 0)
+        }
+        
+        runAction(scale)
     }
     
-    override init(texture: SKTexture?, color: UIColor, size: CGSize) {
-        super.init(texture: texture, color: color, size: size)
+    func reBounce() {
+        let scale = SKAction.scaleTo(0.005, duration: 2, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0)
+        runAction(scale) { 
+            self.hasAnimationFinished = true
+        }
+        
+        
+    }
+    
+    func isFinished () -> Bool {
+        return hasAnimationFinished
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
+

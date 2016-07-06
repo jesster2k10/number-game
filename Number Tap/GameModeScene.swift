@@ -8,61 +8,51 @@
 
 import SpriteKit
 
-class GameModeScene: SKScene {
-    let background = SKSpriteNode(imageNamed: "background")
-    let normalMode = SKSpriteNode(imageNamed: "normal")
-    let endlessMode = SKSpriteNode(imageNamed: "endless")
-    let memoryMode = SKSpriteNode(imageNamed: "memory")
-    let pickAMode = SKLabelNode(fontNamed: "Montserrat-SemiBold")
-    
+class GameModes: SKScene {
+    let background  = SKSpriteNode(imageNamed: "background")
+    let titleBG     = SKSpriteNode(imageNamed: "titleBG")
+    let gameModes   = SKLabelNode(fontNamed: k.Montserrat.SemiBold)
+    let shootRibbon = Ribbon(ribbonType: .Shoot, bodyColour: .Red, dotsColour: .Red)
     override func didMoveToView(view: SKView) {
         scaleMode = .AspectFill
         size = CGSizeMake(640, 960)
         
         background.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
-        background.zPosition = -10
         background.size = self.size
+        background.zPosition = -1
         addChild(background)
         
-        endlessMode.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
-        endlessMode.zPosition = 2
-        addChild(endlessMode)
+        titleBG.position = CGPointMake(CGRectGetMidX(self.frame), 900)
+        titleBG.setScale(1.3)
         
-        normalMode.position = CGPointMake(endlessMode.position.x, endlessMode.position.y + 80)
-        normalMode.zPosition = 2
+        gameModes.text = NSLocalizedString("game-modes", comment: "Game Modes")
+        gameModes.horizontalAlignmentMode = .Center
+        gameModes.verticalAlignmentMode = .Center
+        gameModes.zPosition = 10
+        gameModes.fontSize = 65
+
+        titleBG.addChild(gameModes)
         
-        memoryMode.position = normalMode.position
-        memoryMode.zPosition = 2
-        addChild(memoryMode)
+        let gameModesShadow = SKLabelNode(fontNamed: k.Montserrat.SemiBold)
+        gameModesShadow.color = UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1)
+        gameModesShadow.alpha = 0.21
+        gameModesShadow.position = CGPointMake(gameModes.position.x, gameModes.position.y - 3)
+        gameModesShadow.horizontalAlignmentMode = .Center
+        gameModesShadow.verticalAlignmentMode = .Center
+        gameModesShadow.zPosition = 10
+        gameModesShadow.fontSize = 65
+        titleBG.addChild(gameModesShadow)
+        addChild(titleBG)
         
-        pickAMode.position = CGPointMake(normalMode.position.x, normalMode.position.y + 110)
-        pickAMode.zPosition = 2
-        pickAMode.fontSize = 67
-        pickAMode.text = "pick a mode"
-        pickAMode.fontColor = UIColor.whiteColor()
-        pickAMode.horizontalAlignmentMode = .Center
-        addChild(pickAMode)
+        shootRibbon.position = CGPointMake(203, 651)
+        shootRibbon.setScale(1.5)
+        addChild(shootRibbon)
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         for touch in touches {
             let location = touch.locationInNode(self)
             
-            if endlessMode.containsPoint(location) {
-                NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "gameMode")
-                let gameScene = GameScene()
-                self.view?.presentScene(gameScene, transition: SKTransition.fadeWithColor(UIColor(rgba : "#434343"), duration: 1))
-                endlessMode.runAction(k.Sounds.blopAction1)
-
-            };
-            
-            if memoryMode.containsPoint(location) {
-                NSUserDefaults.standardUserDefaults().setInteger(2, forKey: "gameMode")
-                let gameScene = GameScene()
-                self.view?.presentScene(gameScene, transition: SKTransition.fadeWithColor(UIColor(rgba: "#434343"), duration: 1))
-                memoryMode.runAction(k.Sounds.blopAction1)
-
-            }
         }
     }
 }

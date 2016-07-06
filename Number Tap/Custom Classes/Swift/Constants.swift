@@ -17,6 +17,9 @@ enum gameMode: String {
     case Timed   = "Timed"
     case Endless = "Endless"
     case Memory  = "Memory"
+    case FirstLaunch = "First Launch"
+    case Easy = "Easy"
+    case Impossible = "Impossible"
 }
 
 // Use enum as a simple namespace.  (It has no cases so you can't instantiate it.)
@@ -44,10 +47,14 @@ struct k {
     
     private static let Prefix    = "com.flatboxstudio.numbertap."
     private static let wavEnding = ".wav"
-    
+    private static let MontserratPrefix = "Montserrat"
+
+    struct Montserrat {
+        static let Regular = MontserratPrefix + "-Regular"
+        static let SemiBold = MontserratPrefix + "-SemiBold"
+    }
     struct keys {
         
-        static let adMobUnitID    = "ca-app-pub-2605361342491028/3787090995"
         static let cbAppId        = "56f6fd9c5b14536f8a31e503"
         static let cbAppSignature = "720d055366d319187a7ea370039704f5139c237f"
         static let ADAppID        = "appfd40158c251440d3a1"
@@ -63,6 +70,10 @@ struct k {
 
         static let blopAction1 = SKAction.playSoundFileNamed(blop01, waitForCompletion: false)
         static let blopAction2 = SKAction.playSoundFileNamed(blop02, waitForCompletion: false)
+    }
+    
+    struct flatColors {
+        static let red = UIColor(rgba: "#e74c3c")
     }
     
     struct GameCenter {

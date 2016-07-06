@@ -7,7 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F212FBA1CCC80FD009174EB /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F212FB91CCC80FD009174EB /* ReplayKit.framework */; };
+		39ADB3D3944950609744D63F /* Pods_Number_TapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4220B69D29B2E7CBC0D979D2 /* Pods_Number_TapUITests.framework */; };
+		5F0112511D26A668006765D8 /* GameModes.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5F0112501D26A668006765D8 /* GameModes.sks */; };
+		5F2116CA1D2A9F3700501564 /* Supersonic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F92B5D91D162F88008CD608 /* Supersonic.framework */; };
+		5F2116D01D2BC16E00501564 /* BuildingModeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2116CC1D2BC16E00501564 /* BuildingModeScene.swift */; };
+		5F2116D11D2BC16F00501564 /* BuildUpScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2116CD1D2BC16E00501564 /* BuildUpScene.swift */; };
+		5F2116D21D2BC16F00501564 /* FallingMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2116CE1D2BC16E00501564 /* FallingMode.swift */; };
+		5F2116D31D2BC16F00501564 /* TutorialScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2116CF1D2BC16E00501564 /* TutorialScene.swift */; };
+		5F2116D71D2BC20200501564 /* ShootMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2116D61D2BC20200501564 /* ShootMode.swift */; };
+		5F2116D91D2BC45F00501564 /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2116D81D2BC45F00501564 /* GameMode.swift */; };
+		5F212FBA1CCC80FD009174EB /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F212FB91CCC80FD009174EB /* ReplayKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5F229D431CAACD1700A4C014 /* AirshipKit in Sources */ = {isa = PBXBuildFile; fileRef = 5F57F6901CA17DCF004FCA64 /* AirshipKit */; };
 		5F229D441CAACD1900A4C014 /* Airship in Sources */ = {isa = PBXBuildFile; fileRef = 5F57F68E1CA17D27004FCA64 /* Airship */; };
 		5F33683F1CA98BEC00A2DE2C /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F3368351CA98BEC00A2DE2C /* Montserrat-Bold.otf */; };
@@ -15,6 +24,17 @@
 		5F3368431CA98BEC00A2DE2C /* Montserrat-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F3368391CA98BEC00A2DE2C /* Montserrat-Light.otf */; };
 		5F3368441CA98BEC00A2DE2C /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F33683A1CA98BEC00A2DE2C /* Montserrat-Regular.otf */; };
 		5F3368451CA98BEC00A2DE2C /* Montserrat-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F33683B1CA98BEC00A2DE2C /* Montserrat-SemiBold.otf */; };
+		5F35F2C71D0E1A300057F2A1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B41B1CE6108E00F191DA /* AVFoundation.framework */; };
+		5F35F2D61D102FD90057F2A1 /* MTMigration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F35F2CA1D0F79890057F2A1 /* MTMigration.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		5F35F2DA1D102FD90057F2A1 /* Appirater.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F35F2D71D102FD90057F2A1 /* Appirater.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		5F35F2DB1D102FD90057F2A1 /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F35F2D81D102FD90057F2A1 /* MBProgressHUD.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		5F35F2DC1D102FD90057F2A1 /* PermissionScope.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F35F2D91D102FD90057F2A1 /* PermissionScope.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		5F53C3251D19712A00675737 /* SKUtilities2.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F53C3231D19712A00675737 /* SKUtilities2.m */; };
+		5F53C3261D19712A00675737 /* SKUtilities2.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F53C3231D19712A00675737 /* SKUtilities2.m */; };
+		5F53C3271D19712A00675737 /* SKUtilities2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F53C3241D19712A00675737 /* SKUtilities2.xcassets */; };
+		5F53C3281D19712A00675737 /* SKUtilities2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F53C3241D19712A00675737 /* SKUtilities2.xcassets */; };
+		5F53C3661D1D826100675737 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F53C3691D1D826100675737 /* Localizable.strings */; };
+		5F53C3671D1D826100675737 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F53C3691D1D826100675737 /* Localizable.strings */; };
 		5F57F6981CA17DF8004FCA64 /* AirshipKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F57F6971CA17DD5004FCA64 /* AirshipKit.framework */; };
 		5F57F6991CA17DF8004FCA64 /* AirshipKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5F57F6971CA17DD5004FCA64 /* AirshipKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5F57F69E1CA17E30004FCA64 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F57F69D1CA17E30004FCA64 /* AirshipConfig.plist */; };
@@ -22,10 +42,37 @@
 		5F675A3B1CB812E400CF172C /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F675A3A1CB812E400CF172C /* iAd.framework */; };
 		5F675A3E1CB82A9600CF172C /* blipBlop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5F675A3D1CB82A9600CF172C /* blipBlop.wav */; };
 		5F69E51F1CB13F4800D7D01F /* GameModeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F69E51E1CB13F4800D7D01F /* GameModeScene.swift */; };
+		5F6AE2FB1D176F0C00834A31 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6AE2F81D176F0C00834A31 /* FBSDKCoreKit.framework */; };
+		5F6AE2FC1D176F0C00834A31 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6AE2F91D176F0C00834A31 /* FBSDKLoginKit.framework */; };
+		5F6AE2FD1D176F0C00834A31 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6AE2FA1D176F0C00834A31 /* FBSDKShareKit.framework */; };
+		5F74C5031D0970080099D4D9 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAF8421C94C15C009D815A /* GameViewController.swift */; };
+		5F74C5041D09700E0099D4D9 /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F57F69F1CA1806D004FCA64 /* HomeScene.swift */; };
+		5F74C5091D0972080099D4D9 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B42B1CE6110400F191DA /* Social.framework */; };
+		5F74C50A1D0972190099D4D9 /* blipBlop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5F675A3D1CB82A9600CF172C /* blipBlop.wav */; };
+		5F74C50B1D0972240099D4D9 /* GameKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC042251CA8801A00264482 /* GameKitHelper.swift */; };
+		5F74C50C1D0972450099D4D9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F8BFDD71CA73C3A00F90C43 /* StoreKit.framework */; };
+		5F74C50D1D0972480099D4D9 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F8BFDC81CA6B81600F90C43 /* GameKit.framework */; };
+		5F74C50F1D09724F0099D4D9 /* Chartboost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F8075181CBA7DA100D7A9BB /* Chartboost.framework */; };
+		5F74C5101D0972540099D4D9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B41B1CE6108E00F191DA /* AVFoundation.framework */; };
+		5F74C5121D0972960099D4D9 /* FTLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F74C5111D0972960099D4D9 /* FTLogging.swift */; };
+		5F74C5131D0972960099D4D9 /* FTLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F74C5111D0972960099D4D9 /* FTLogging.swift */; };
+		5F74C5141D0972B60099D4D9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAFA771CA8157E000CE82E /* Constants.swift */; };
+		5F74C5151D09734B0099D4D9 /* Utilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAFA7C1CA8157E000CE82E /* Utilites.swift */; };
+		5F74C5161D0973930099D4D9 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAFA781CA8157E000CE82E /* IAPHelper.swift */; };
+		5F74C5181D0974290099D4D9 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F74C5171D0974290099D4D9 /* SpriteKit.framework */; };
+		5F74C5191D09742E0099D4D9 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F74C5171D0974290099D4D9 /* SpriteKit.framework */; };
+		5F74C51A1D0974CA0099D4D9 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAF8401C94C15C009D815A /* GameScene.swift */; };
+		5F74C51B1D0975040099D4D9 /* Ribbon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAFA791CA8157E000CE82E /* Ribbon.swift */; };
+		5F74C51C1D0975070099D4D9 /* NumberBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAFA7A1CA8157E000CE82E /* NumberBox.swift */; };
+		5F74C51D1D09750B0099D4D9 /* ProgressNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAFA7B1CA8157E000CE82E /* ProgressNode.swift */; };
+		5F74C51E1D09751A0099D4D9 /* AnimatedScoreLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAFA841CA81646000CE82E /* AnimatedScoreLabel.m */; };
+		5F74C51F1D09751D0099D4D9 /* TCProgressBarNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF98C761CBA99A7003B6893 /* TCProgressBarNode.m */; };
+		5F74C5201D0975200099D4D9 /* TCProgressTimerForegroundCropNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF98C7E1CBABEF8003B6893 /* TCProgressTimerForegroundCropNode.m */; };
+		5F74C5211D0975230099D4D9 /* TCProgressTimerNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF98C811CBABF11003B6893 /* TCProgressTimerNode.m */; };
+		5F74C5221D0975310099D4D9 /* AdColony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B4131CE5FF9800F191DA /* AdColony.framework */; };
 		5F78B4161CE6103400F191DA /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B4151CE6103400F191DA /* libz.1.2.5.tbd */; settings = {ATTRIBUTES = (Weak, ); }; };
-		5F78B4181CE6105A00F191DA /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B4171CE6105A00F191DA /* AdSupport.framework */; };
+		5F78B4181CE6105A00F191DA /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B4171CE6105A00F191DA /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5F78B41A1CE6106C00F191DA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B4191CE6106C00F191DA /* AudioToolbox.framework */; };
-		5F78B41C1CE6108E00F191DA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B41B1CE6108E00F191DA /* AVFoundation.framework */; };
 		5F78B41E1CE610A800F191DA /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B41D1CE610A800F191DA /* CoreMedia.framework */; };
 		5F78B4201CE610B200F191DA /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B41F1CE610B200F191DA /* CoreTelephony.framework */; };
 		5F78B4221CE610BC00F191DA /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B4211CE610BC00F191DA /* EventKit.framework */; };
@@ -35,14 +82,20 @@
 		5F78B42A1CE610ED00F191DA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B4291CE610ED00F191DA /* QuartzCore.framework */; };
 		5F78B42C1CE6110400F191DA /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B42B1CE6110400F191DA /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5F78B42E1CE6113700F191DA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B42D1CE6113700F191DA /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		5F8075161CBA790B00D7A9BB /* PermissionScope.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F8075151CBA790B00D7A9BB /* PermissionScope.framework */; };
 		5F80751A1CBA7E4F00D7A9BB /* Chartboost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F8075181CBA7DA100D7A9BB /* Chartboost.framework */; };
+		5F831C491D108B560046B358 /* AdColony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B4131CE5FF9800F191DA /* AdColony.framework */; };
 		5F8BFDC91CA6B81600F90C43 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F8BFDC81CA6B81600F90C43 /* GameKit.framework */; };
 		5F8BFDCB1CA6B81C00F90C43 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F8BFDCA1CA6B81C00F90C43 /* SystemConfiguration.framework */; };
-		5F8BFDD11CA710C700F90C43 /* iphone5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F8BFDD01CA710C700F90C43 /* iphone5.jpg */; };
 		5F8BFDD81CA73C3A00F90C43 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F8BFDD71CA73C3A00F90C43 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		5F8BFDDA1CA73C4700F90C43 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F8BFDD91CA73C4700F90C43 /* CoreGraphics.framework */; };
+		5F92B5DC1D162FAB008CD608 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F92B5DB1D162FAB008CD608 /* CoreVideo.framework */; };
+		5F92B5DD1D162FC3008CD608 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F8BFDD91CA73C4700F90C43 /* CoreGraphics.framework */; };
+		5F92B5DF1D162FCD008CD608 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F92B5DE1D162FCD008CD608 /* CFNetwork.framework */; };
+		5F92B5E11D162FD5008CD608 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F92B5E01D162FD5008CD608 /* MobileCoreServices.framework */; };
+		5F92B5E51D16300A008CD608 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F92B5E41D16300A008CD608 /* CoreLocation.framework */; };
+		5F92B5E71D16301C008CD608 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F92B5E61D16301C008CD608 /* Security.framework */; };
 		5FC042261CA8801A00264482 /* GameKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC042251CA8801A00264482 /* GameKitHelper.swift */; };
+		5FC57DD91D21AEB100202588 /* lightblue.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FC57DD81D21AEB100202588 /* lightblue.png */; };
+		5FC57DDB1D21AEC000202588 /* flatbox-text-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FC57DDA1D21AEC000202588 /* flatbox-text-icon.png */; };
 		5FC98C011CAB21A7000ABDD0 /* blop01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5FC98BFF1CAB21A7000ABDD0 /* blop01.wav */; };
 		5FC98C021CAB21A7000ABDD0 /* blop02.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5FC98C001CAB21A7000ABDD0 /* blop02.wav */; };
 		5FC98C031CAB2819000ABDD0 /* libUAirship-7.0.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F229D451CAACE3600A4C014 /* libUAirship-7.0.2.a */; };
@@ -56,22 +109,22 @@
 		5FDAF8461C94C15C009D815A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FDAF8441C94C15C009D815A /* Main.storyboard */; };
 		5FDAF8481C94C15C009D815A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FDAF8471C94C15C009D815A /* Assets.xcassets */; };
 		5FDAF84B1C94C15C009D815A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FDAF8491C94C15C009D815A /* LaunchScreen.storyboard */; };
-		5FDAF8561C94C15D009D815A /* Number_TapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAF8551C94C15D009D815A /* Number_TapTests.swift */; };
-		5FDAF8611C94C15D009D815A /* Number_TapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAF8601C94C15D009D815A /* Number_TapUITests.swift */; };
+		5FDAF8561C94C15D009D815A /* NumberTapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAF8551C94C15D009D815A /* NumberTapTests.swift */; };
+		5FDAF8611C94C15D009D815A /* NumberTapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAF8601C94C15D009D815A /* NumberTapUITests.swift */; };
 		5FDAFA7D1CA8157E000CE82E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAFA771CA8157E000CE82E /* Constants.swift */; };
 		5FDAFA7E1CA8157E000CE82E /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAFA781CA8157E000CE82E /* IAPHelper.swift */; };
-		5FDAFA7F1CA8157E000CE82E /* NTProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAFA791CA8157E000CE82E /* NTProgressBar.swift */; };
+		5FDAFA7F1CA8157E000CE82E /* Ribbon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAFA791CA8157E000CE82E /* Ribbon.swift */; };
 		5FDAFA801CA8157E000CE82E /* NumberBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAFA7A1CA8157E000CE82E /* NumberBox.swift */; };
 		5FDAFA811CA8157E000CE82E /* ProgressNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAFA7B1CA8157E000CE82E /* ProgressNode.swift */; };
 		5FDAFA821CA8157E000CE82E /* Utilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAFA7C1CA8157E000CE82E /* Utilites.swift */; };
 		5FDAFA851CA81646000CE82E /* AnimatedScoreLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDAFA841CA81646000CE82E /* AnimatedScoreLabel.m */; };
-		5FF6731B1D0405E900CEE1E5 /* AdColony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F78B4131CE5FF9800F191DA /* AdColony.framework */; };
 		5FF98C771CBA99A7003B6893 /* TCProgressBarNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF98C761CBA99A7003B6893 /* TCProgressBarNode.m */; };
 		5FF98C7A1CBAA4B2003B6893 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF98C791CBAA4B2003B6893 /* Default-Landscape@2x~ipad.png */; };
 		5FF98C7C1CBAA4BE003B6893 /* Default-portrait@3x~iphone6+.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF98C7B1CBAA4BE003B6893 /* Default-portrait@3x~iphone6+.png */; };
 		5FF98C7F1CBABEF8003B6893 /* TCProgressTimerForegroundCropNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF98C7E1CBABEF8003B6893 /* TCProgressTimerForegroundCropNode.m */; };
 		5FF98C821CBABF11003B6893 /* TCProgressTimerNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF98C811CBABF11003B6893 /* TCProgressTimerNode.m */; };
-		8B5777FBA84E6E3025243E91 /* Pods_Number_Tap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A86360AF49FB2156EAFF0172 /* Pods_Number_Tap.framework */; };
+		66EF88F113DC3F5491A17E3F /* Pods_Number_TapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1D5BED5C2B4EA3CB119CD7 /* Pods_Number_TapTests.framework */; };
+		B91E4A7EFEEA31354B4B554F /* Pods_Number_Tap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF5260D03C4FECB64879062C /* Pods_Number_Tap.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,8 +173,36 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		441A032841553DD3FAE27A0D /* Pods-Number Tap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Number Tap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Number Tap/Pods-Number Tap.debug.xcconfig"; sourceTree = "<group>"; };
+		3BBFA3F11DC58D6CB5AD310C /* Pods-Number TapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Number TapTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Number TapTests/Pods-Number TapTests.release.xcconfig"; sourceTree = "<group>"; };
+		4220B69D29B2E7CBC0D979D2 /* Pods_Number_TapUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Number_TapUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		458630DDBA5D153C768AA4B7 /* Pods-Number TapUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Number TapUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Number TapUITests/Pods-Number TapUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5F0112501D26A668006765D8 /* GameModes.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = GameModes.sks; path = ../GameModes.sks; sourceTree = "<group>"; };
+		5F10A4541D1DAE24008E86C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5F10A4551D1DD463008E86C3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		5F10A4561D1DD463008E86C3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		5F10A4581D1DD46B008E86C3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		5F10A4591D1DD46B008E86C3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		5F10A45A1D1DD474008E86C3 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		5F10A45B1D1DD474008E86C3 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		5F10A45D1D1DD47C008E86C3 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		5F10A45E1D1DD47C008E86C3 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		5F10A4601D1DD481008E86C3 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Main.strings; sourceTree = "<group>"; };
+		5F10A4611D1DD481008E86C3 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		5F10A4631D1DD485008E86C3 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
+		5F10A4641D1DD485008E86C3 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		5F10A4661D1DD4D0008E86C3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5F10A4671D1DD4D9008E86C3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5F10A4681D1DD4DA008E86C3 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5F10A4691D1DD4DC008E86C3 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5F10A46A1D1DD4DD008E86C3 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5F10A46B1D1DD4DE008E86C3 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5F1D0F0D1C996244002E868D /* Number Tap-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Number Tap-Bridging-Header.h"; sourceTree = "<group>"; };
+		5F2116CC1D2BC16E00501564 /* BuildingModeScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingModeScene.swift; sourceTree = "<group>"; };
+		5F2116CD1D2BC16E00501564 /* BuildUpScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildUpScene.swift; sourceTree = "<group>"; };
+		5F2116CE1D2BC16E00501564 /* FallingMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallingMode.swift; sourceTree = "<group>"; };
+		5F2116CF1D2BC16E00501564 /* TutorialScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialScene.swift; sourceTree = "<group>"; };
+		5F2116D61D2BC20200501564 /* ShootMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShootMode.swift; sourceTree = "<group>"; };
+		5F2116D81D2BC45F00501564 /* GameMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
 		5F212FB91CCC80FD009174EB /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		5F229D451CAACE3600A4C014 /* libUAirship-7.0.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libUAirship-7.0.2.a"; path = "Airship/libUAirship-7.0.2.a"; sourceTree = "<group>"; };
 		5F229D471CAACE3600A4C014 /* libUAirship-7.0.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libUAirship-7.0.2.a"; path = "Airship/libUAirship-7.0.2.a"; sourceTree = "<group>"; };
@@ -130,6 +211,14 @@
 		5F3368391CA98BEC00A2DE2C /* Montserrat-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.otf"; sourceTree = "<group>"; };
 		5F33683A1CA98BEC00A2DE2C /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.otf"; sourceTree = "<group>"; };
 		5F33683B1CA98BEC00A2DE2C /* Montserrat-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.otf"; sourceTree = "<group>"; };
+		5F35F2CA1D0F79890057F2A1 /* MTMigration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MTMigration.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/Number_Tap-fkvgqobfztaekfbqqnsjtkfkoxhv/Build/Products/Debug-iphoneos/MTMigration/MTMigration.framework"; sourceTree = "<group>"; };
+		5F35F2D71D102FD90057F2A1 /* Appirater.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Appirater.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/Number_Tap-fkvgqobfztaekfbqqnsjtkfkoxhv/Build/Products/Debug-iphoneos/Appirater/Appirater.framework"; sourceTree = "<group>"; };
+		5F35F2D81D102FD90057F2A1 /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/Number_Tap-fkvgqobfztaekfbqqnsjtkfkoxhv/Build/Products/Debug-iphoneos/MBProgressHUD/MBProgressHUD.framework"; sourceTree = "<group>"; };
+		5F35F2D91D102FD90057F2A1 /* PermissionScope.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PermissionScope.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/Number_Tap-fkvgqobfztaekfbqqnsjtkfkoxhv/Build/Products/Debug-iphoneos/PermissionScope/PermissionScope.framework"; sourceTree = "<group>"; };
+		5F53C3221D19712A00675737 /* SKUtilities2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKUtilities2.h; sourceTree = "<group>"; };
+		5F53C3231D19712A00675737 /* SKUtilities2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKUtilities2.m; sourceTree = "<group>"; };
+		5F53C3241D19712A00675737 /* SKUtilities2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SKUtilities2.xcassets; sourceTree = "<group>"; };
+		5F53C36B1D1D827500675737 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5F57F68E1CA17D27004FCA64 /* Airship */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Airship; sourceTree = "<group>"; };
 		5F57F6901CA17DCF004FCA64 /* AirshipKit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AirshipKit; sourceTree = "<group>"; };
 		5F57F6921CA17DD2004FCA64 /* AirshipKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AirshipKit.xcodeproj; path = "../../../../../../Downloads/libUAirship-7.0.2/AirshipKit/AirshipKit.xcodeproj"; sourceTree = "<group>"; };
@@ -138,6 +227,11 @@
 		5F675A3A1CB812E400CF172C /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		5F675A3D1CB82A9600CF172C /* blipBlop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blipBlop.wav; sourceTree = "<group>"; };
 		5F69E51E1CB13F4800D7D01F /* GameModeScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModeScene.swift; sourceTree = "<group>"; };
+		5F6AE2F81D176F0C00834A31 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		5F6AE2F91D176F0C00834A31 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		5F6AE2FA1D176F0C00834A31 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		5F74C5111D0972960099D4D9 /* FTLogging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTLogging.swift; sourceTree = "<group>"; };
+		5F74C5171D0974290099D4D9 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		5F78B4131CE5FF9800F191DA /* AdColony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdColony.framework; path = "Number Tap/AdColony.framework"; sourceTree = "<group>"; };
 		5F78B4151CE6103400F191DA /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
 		5F78B4171CE6105A00F191DA /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -156,10 +250,19 @@
 		5F8075181CBA7DA100D7A9BB /* Chartboost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Chartboost.framework; sourceTree = "<group>"; };
 		5F8BFDC81CA6B81600F90C43 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		5F8BFDCA1CA6B81C00F90C43 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		5F8BFDD01CA710C700F90C43 /* iphone5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iphone5.jpg; sourceTree = "<group>"; };
 		5F8BFDD71CA73C3A00F90C43 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		5F8BFDD91CA73C4700F90C43 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5F92B5D91D162F88008CD608 /* Supersonic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Supersonic.framework; path = "Number Tap/Supersonic.framework"; sourceTree = "<group>"; };
+		5F92B5DB1D162FAB008CD608 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		5F92B5DE1D162FCD008CD608 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		5F92B5E01D162FD5008CD608 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		5F92B5E21D162FE0008CD608 /* libz.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.tbd; path = usr/lib/libz.1.tbd; sourceTree = SDKROOT; };
+		5F92B5E41D16300A008CD608 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		5F92B5E61D16301C008CD608 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		5FC042251CA8801A00264482 /* GameKitHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameKitHelper.swift; sourceTree = "<group>"; };
+		5FC57DD71D1FFC4500202588 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		5FC57DD81D21AEB100202588 /* lightblue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightblue.png; sourceTree = "<group>"; };
+		5FC57DDA1D21AEC000202588 /* flatbox-text-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flatbox-text-icon.png"; sourceTree = "<group>"; };
 		5FC98BFF1CAB21A7000ABDD0 /* blop01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blop01.wav; sourceTree = "<group>"; };
 		5FC98C001CAB21A7000ABDD0 /* blop02.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blop02.wav; sourceTree = "<group>"; };
 		5FC98C041CAB283A000ABDD0 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -168,7 +271,7 @@
 		5FD758251CB92E1700C1E1A0 /* STNotificationHelper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = STNotificationHelper.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/Number_Tap-fkvgqobfztaekfbqqnsjtkfkoxhv/Build/Products/Debug-iphoneos/STNotificationHelper.framework"; sourceTree = "<group>"; };
 		5FDAF8391C94C15C009D815A /* Number Tap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Number Tap.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FDAF83C1C94C15C009D815A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5FDAF83E1C94C15C009D815A /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		5FDAF83E1C94C15C009D815A /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = GameScene.sks; path = ../GameScene.sks; sourceTree = "<group>"; };
 		5FDAF8401C94C15C009D815A /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		5FDAF8421C94C15C009D815A /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		5FDAF8451C94C15C009D815A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -176,14 +279,14 @@
 		5FDAF84A1C94C15C009D815A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5FDAF84C1C94C15C009D815A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FDAF8511C94C15D009D815A /* Number TapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Number TapTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5FDAF8551C94C15D009D815A /* Number_TapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number_TapTests.swift; sourceTree = "<group>"; };
+		5FDAF8551C94C15D009D815A /* NumberTapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTapTests.swift; sourceTree = "<group>"; };
 		5FDAF8571C94C15D009D815A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FDAF85C1C94C15D009D815A /* Number TapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Number TapUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5FDAF8601C94C15D009D815A /* Number_TapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number_TapUITests.swift; sourceTree = "<group>"; };
+		5FDAF8601C94C15D009D815A /* NumberTapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTapUITests.swift; sourceTree = "<group>"; };
 		5FDAF8621C94C15D009D815A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FDAFA771CA8157E000CE82E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5FDAFA781CA8157E000CE82E /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
-		5FDAFA791CA8157E000CE82E /* NTProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTProgressBar.swift; sourceTree = "<group>"; };
+		5FDAFA791CA8157E000CE82E /* Ribbon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ribbon.swift; sourceTree = "<group>"; };
 		5FDAFA7A1CA8157E000CE82E /* NumberBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberBox.swift; sourceTree = "<group>"; };
 		5FDAFA7B1CA8157E000CE82E /* ProgressNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressNode.swift; sourceTree = "<group>"; };
 		5FDAFA7C1CA8157E000CE82E /* Utilites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilites.swift; sourceTree = "<group>"; };
@@ -197,8 +300,12 @@
 		5FF98C7E1CBABEF8003B6893 /* TCProgressTimerForegroundCropNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCProgressTimerForegroundCropNode.m; sourceTree = "<group>"; };
 		5FF98C801CBABF11003B6893 /* TCProgressTimerNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCProgressTimerNode.h; sourceTree = "<group>"; };
 		5FF98C811CBABF11003B6893 /* TCProgressTimerNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCProgressTimerNode.m; sourceTree = "<group>"; };
-		A86360AF49FB2156EAFF0172 /* Pods_Number_Tap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Number_Tap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD0A65B0B7CC8D37B25581AE /* Pods-Number Tap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Number Tap.release.xcconfig"; path = "Pods/Target Support Files/Pods-Number Tap/Pods-Number Tap.release.xcconfig"; sourceTree = "<group>"; };
+		D07EFBA83884085B74D9E067 /* Pods-Number Tap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Number Tap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Number Tap/Pods-Number Tap.debug.xcconfig"; sourceTree = "<group>"; };
+		D8D394F70C0857B3827858D6 /* Pods-Number Tap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Number Tap.release.xcconfig"; path = "Pods/Target Support Files/Pods-Number Tap/Pods-Number Tap.release.xcconfig"; sourceTree = "<group>"; };
+		DD61C09A2F75683679353289 /* Pods-Number TapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Number TapTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Number TapTests/Pods-Number TapTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DDD80EB3EC4A4ECD771D7423 /* Pods-Number TapUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Number TapUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Number TapUITests/Pods-Number TapUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		FD1D5BED5C2B4EA3CB119CD7 /* Pods_Number_TapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Number_TapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF5260D03C4FECB64879062C /* Pods_Number_Tap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Number_Tap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,33 +313,46 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F92B5E71D16301C008CD608 /* Security.framework in Frameworks */,
+				5F78B4201CE610B200F191DA /* CoreTelephony.framework in Frameworks */,
+				5F92B5E51D16300A008CD608 /* CoreLocation.framework in Frameworks */,
+				5F78B4181CE6105A00F191DA /* AdSupport.framework in Frameworks */,
+				5F2116CA1D2A9F3700501564 /* Supersonic.framework in Frameworks */,
+				5F92B5E11D162FD5008CD608 /* MobileCoreServices.framework in Frameworks */,
+				5F92B5DF1D162FCD008CD608 /* CFNetwork.framework in Frameworks */,
+				5F92B5DD1D162FC3008CD608 /* CoreGraphics.framework in Frameworks */,
+				5F92B5DC1D162FAB008CD608 /* CoreVideo.framework in Frameworks */,
+				5F35F2DA1D102FD90057F2A1 /* Appirater.framework in Frameworks */,
+				5F35F2DB1D102FD90057F2A1 /* MBProgressHUD.framework in Frameworks */,
+				5F35F2DC1D102FD90057F2A1 /* PermissionScope.framework in Frameworks */,
+				5F35F2D61D102FD90057F2A1 /* MTMigration.framework in Frameworks */,
+				5F35F2C71D0E1A300057F2A1 /* AVFoundation.framework in Frameworks */,
+				5F74C5181D0974290099D4D9 /* SpriteKit.framework in Frameworks */,
 				5F78B42E1CE6113700F191DA /* WebKit.framework in Frameworks */,
 				5F8BFDCB1CA6B81C00F90C43 /* SystemConfiguration.framework in Frameworks */,
-				5F8BFDD81CA73C3A00F90C43 /* StoreKit.framework in Frameworks */,
 				5F78B42C1CE6110400F191DA /* Social.framework in Frameworks */,
+				5F6AE2FB1D176F0C00834A31 /* FBSDKCoreKit.framework in Frameworks */,
+				5F6AE2FC1D176F0C00834A31 /* FBSDKLoginKit.framework in Frameworks */,
+				5F6AE2FD1D176F0C00834A31 /* FBSDKShareKit.framework in Frameworks */,
 				5F78B42A1CE610ED00F191DA /* QuartzCore.framework in Frameworks */,
 				5F78B4281CE610DC00F191DA /* MessageUI.framework in Frameworks */,
 				5F78B4261CE610CE00F191DA /* MediaPlayer.framework in Frameworks */,
 				5F78B4241CE610C600F191DA /* EventKitUI.framework in Frameworks */,
 				5F78B4221CE610BC00F191DA /* EventKit.framework in Frameworks */,
-				5F78B4201CE610B200F191DA /* CoreTelephony.framework in Frameworks */,
 				5F78B41E1CE610A800F191DA /* CoreMedia.framework in Frameworks */,
-				5FF6731B1D0405E900CEE1E5 /* AdColony.framework in Frameworks */,
-				5F8BFDDA1CA73C4700F90C43 /* CoreGraphics.framework in Frameworks */,
-				5F78B41C1CE6108E00F191DA /* AVFoundation.framework in Frameworks */,
 				5F78B41A1CE6106C00F191DA /* AudioToolbox.framework in Frameworks */,
 				5F78B4161CE6103400F191DA /* libz.1.2.5.tbd in Frameworks */,
-				5F78B4181CE6105A00F191DA /* AdSupport.framework in Frameworks */,
+				5F831C491D108B560046B358 /* AdColony.framework in Frameworks */,
 				5F212FBA1CCC80FD009174EB /* ReplayKit.framework in Frameworks */,
-				5F8075161CBA790B00D7A9BB /* PermissionScope.framework in Frameworks */,
 				5F675A3B1CB812E400CF172C /* iAd.framework in Frameworks */,
 				5F80751A1CBA7E4F00D7A9BB /* Chartboost.framework in Frameworks */,
 				5F8BFDC91CA6B81600F90C43 /* GameKit.framework in Frameworks */,
+				5F8BFDD81CA73C3A00F90C43 /* StoreKit.framework in Frameworks */,
 				5FC98C071CAB2840000ABDD0 /* libsqlite3.tbd in Frameworks */,
 				5FC98C051CAB283A000ABDD0 /* libz.tbd in Frameworks */,
 				5FC98C031CAB2819000ABDD0 /* libUAirship-7.0.2.a in Frameworks */,
 				5F57F6981CA17DF8004FCA64 /* AirshipKit.framework in Frameworks */,
-				8B5777FBA84E6E3025243E91 /* Pods_Number_Tap.framework in Frameworks */,
+				B91E4A7EFEEA31354B4B554F /* Pods_Number_Tap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +360,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F74C50F1D09724F0099D4D9 /* Chartboost.framework in Frameworks */,
+				5F74C50D1D0972480099D4D9 /* GameKit.framework in Frameworks */,
+				5F74C5101D0972540099D4D9 /* AVFoundation.framework in Frameworks */,
+				5F74C5091D0972080099D4D9 /* Social.framework in Frameworks */,
+				5F74C50C1D0972450099D4D9 /* StoreKit.framework in Frameworks */,
+				5F74C5191D09742E0099D4D9 /* SpriteKit.framework in Frameworks */,
+				5F74C5221D0975310099D4D9 /* AdColony.framework in Frameworks */,
+				66EF88F113DC3F5491A17E3F /* Pods_Number_TapTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,18 +375,47 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39ADB3D3944950609744D63F /* Pods_Number_TapUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F2116CB1D2BC16E00501564 /* Game Modes */ = {
+			isa = PBXGroup;
+			children = (
+				5F2116CC1D2BC16E00501564 /* BuildingModeScene.swift */,
+				5F2116CD1D2BC16E00501564 /* BuildUpScene.swift */,
+				5F2116CE1D2BC16E00501564 /* FallingMode.swift */,
+				5F2116CF1D2BC16E00501564 /* TutorialScene.swift */,
+				5F2116D61D2BC20200501564 /* ShootMode.swift */,
+				5F2116D81D2BC45F00501564 /* GameMode.swift */,
+			);
+			path = "Game Modes";
+			sourceTree = "<group>";
+		};
+		5F2116D41D2BC1C100501564 /* AirshipKit */ = {
+			isa = PBXGroup;
+			children = (
+				5FC98C081CAB296F000ABDD0 /* AirshipResources.bundle */,
+				5F57F69D1CA17E30004FCA64 /* AirshipConfig.plist */,
+				5F57F6921CA17DD2004FCA64 /* AirshipKit.xcodeproj */,
+				5F57F6901CA17DCF004FCA64 /* AirshipKit */,
+				5F57F68E1CA17D27004FCA64 /* Airship */,
+			);
+			name = AirshipKit;
+			sourceTree = "<group>";
+		};
 		5F3368321CA98BEC00A2DE2C /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				5F0112501D26A668006765D8 /* GameModes.sks */,
+				5FDAF83E1C94C15C009D815A /* GameScene.sks */,
 				5FF98C781CBAA4A9003B6893 /* Images */,
 				5F3368331CA98BEC00A2DE2C /* Fonts */,
 				5F33683D1CA98BEC00A2DE2C /* Sounds */,
+				5F53C3691D1D826100675737 /* Localizable.strings */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -285,6 +442,17 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
+		5F53C32A1D19720600675737 /* SKUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				5F53C3221D19712A00675737 /* SKUtilities2.h */,
+				5F53C3231D19712A00675737 /* SKUtilities2.m */,
+				5F53C3241D19712A00675737 /* SKUtilities2.xcassets */,
+			);
+			name = SKUtilities;
+			path = ../..;
+			sourceTree = "<group>";
+		};
 		5F57F6931CA17DD2004FCA64 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,18 +464,14 @@
 		5FDAF8301C94C15C009D815A = {
 			isa = PBXGroup;
 			children = (
-				5FC98C081CAB296F000ABDD0 /* AirshipResources.bundle */,
-				5F57F69D1CA17E30004FCA64 /* AirshipConfig.plist */,
-				5F57F6921CA17DD2004FCA64 /* AirshipKit.xcodeproj */,
-				5F57F6901CA17DCF004FCA64 /* AirshipKit */,
-				5F57F68E1CA17D27004FCA64 /* Airship */,
+				5F2116D41D2BC1C100501564 /* AirshipKit */,
 				5FDAF83B1C94C15C009D815A /* Number Tap */,
 				5FDAF8541C94C15D009D815A /* Number TapTests */,
 				5FDAF85F1C94C15D009D815A /* Number TapUITests */,
 				5FDAF83A1C94C15C009D815A /* Products */,
-				C849A6A1DDBA443D936596BB /* Pods */,
 				FFEDA6FCA3FF3DAAE4142357 /* Frameworks */,
 				5F1D0F0D1C996244002E868D /* Number Tap-Bridging-Header.h */,
+				B803493A4A7951B681CAFEEE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -325,7 +489,6 @@
 			isa = PBXGroup;
 			children = (
 				5FDAF83C1C94C15C009D815A /* AppDelegate.swift */,
-				5FDAF83E1C94C15C009D815A /* GameScene.sks */,
 				5FDAF8401C94C15C009D815A /* GameScene.swift */,
 				5F57F69F1CA1806D004FCA64 /* HomeScene.swift */,
 				5F69E51E1CB13F4800D7D01F /* GameModeScene.swift */,
@@ -334,7 +497,7 @@
 				5FDAF8471C94C15C009D815A /* Assets.xcassets */,
 				5FDAF8491C94C15C009D815A /* LaunchScreen.storyboard */,
 				5FDAF84C1C94C15C009D815A /* Info.plist */,
-				5F8BFDD01CA710C700F90C43 /* iphone5.jpg */,
+				5F2116CB1D2BC16E00501564 /* Game Modes */,
 				5F3368321CA98BEC00A2DE2C /* Assets */,
 				5FDAF8701C94C1F3009D815A /* Custom Classes */,
 			);
@@ -344,7 +507,7 @@
 		5FDAF8541C94C15D009D815A /* Number TapTests */ = {
 			isa = PBXGroup;
 			children = (
-				5FDAF8551C94C15D009D815A /* Number_TapTests.swift */,
+				5FDAF8551C94C15D009D815A /* NumberTapTests.swift */,
 				5FDAF8571C94C15D009D815A /* Info.plist */,
 			);
 			path = "Number TapTests";
@@ -353,7 +516,7 @@
 		5FDAF85F1C94C15D009D815A /* Number TapUITests */ = {
 			isa = PBXGroup;
 			children = (
-				5FDAF8601C94C15D009D815A /* Number_TapUITests.swift */,
+				5FDAF8601C94C15D009D815A /* NumberTapUITests.swift */,
 				5FDAF8621C94C15D009D815A /* Info.plist */,
 			);
 			path = "Number TapUITests";
@@ -371,6 +534,7 @@
 		5FDAFA751CA8153A000CE82E /* Objective-C */ = {
 			isa = PBXGroup;
 			children = (
+				5F53C32A1D19720600675737 /* SKUtilities */,
 				5FDAFA831CA81646000CE82E /* AnimatedScoreLabel.h */,
 				5FDAFA841CA81646000CE82E /* AnimatedScoreLabel.m */,
 				5FF98C751CBA99A7003B6893 /* TCProgressBarNode.h */,
@@ -389,11 +553,12 @@
 			children = (
 				5FDAFA771CA8157E000CE82E /* Constants.swift */,
 				5FDAFA781CA8157E000CE82E /* IAPHelper.swift */,
-				5FDAFA791CA8157E000CE82E /* NTProgressBar.swift */,
+				5FDAFA791CA8157E000CE82E /* Ribbon.swift */,
 				5FDAFA7A1CA8157E000CE82E /* NumberBox.swift */,
 				5FDAFA7B1CA8157E000CE82E /* ProgressNode.swift */,
 				5FDAFA7C1CA8157E000CE82E /* Utilites.swift */,
 				5FC042251CA8801A00264482 /* GameKitHelper.swift */,
+				5F74C5111D0972960099D4D9 /* FTLogging.swift */,
 			);
 			name = Swift;
 			path = "Custom Classes/Swift";
@@ -402,17 +567,23 @@
 		5FF98C781CBAA4A9003B6893 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				5FC57DDA1D21AEC000202588 /* flatbox-text-icon.png */,
+				5FC57DD81D21AEB100202588 /* lightblue.png */,
 				5FF98C791CBAA4B2003B6893 /* Default-Landscape@2x~ipad.png */,
 				5FF98C7B1CBAA4BE003B6893 /* Default-portrait@3x~iphone6+.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
 		};
-		C849A6A1DDBA443D936596BB /* Pods */ = {
+		B803493A4A7951B681CAFEEE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				441A032841553DD3FAE27A0D /* Pods-Number Tap.debug.xcconfig */,
-				FD0A65B0B7CC8D37B25581AE /* Pods-Number Tap.release.xcconfig */,
+				D07EFBA83884085B74D9E067 /* Pods-Number Tap.debug.xcconfig */,
+				D8D394F70C0857B3827858D6 /* Pods-Number Tap.release.xcconfig */,
+				DD61C09A2F75683679353289 /* Pods-Number TapTests.debug.xcconfig */,
+				3BBFA3F11DC58D6CB5AD310C /* Pods-Number TapTests.release.xcconfig */,
+				DDD80EB3EC4A4ECD771D7423 /* Pods-Number TapUITests.debug.xcconfig */,
+				458630DDBA5D153C768AA4B7 /* Pods-Number TapUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -420,6 +591,21 @@
 		FFEDA6FCA3FF3DAAE4142357 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5F6AE2F81D176F0C00834A31 /* FBSDKCoreKit.framework */,
+				5F6AE2F91D176F0C00834A31 /* FBSDKLoginKit.framework */,
+				5F6AE2FA1D176F0C00834A31 /* FBSDKShareKit.framework */,
+				5F92B5E61D16301C008CD608 /* Security.framework */,
+				5F92B5E41D16300A008CD608 /* CoreLocation.framework */,
+				5F92B5E21D162FE0008CD608 /* libz.1.tbd */,
+				5F92B5E01D162FD5008CD608 /* MobileCoreServices.framework */,
+				5F92B5DE1D162FCD008CD608 /* CFNetwork.framework */,
+				5F92B5DB1D162FAB008CD608 /* CoreVideo.framework */,
+				5F92B5D91D162F88008CD608 /* Supersonic.framework */,
+				5F35F2D71D102FD90057F2A1 /* Appirater.framework */,
+				5F35F2D81D102FD90057F2A1 /* MBProgressHUD.framework */,
+				5F35F2D91D102FD90057F2A1 /* PermissionScope.framework */,
+				5F35F2CA1D0F79890057F2A1 /* MTMigration.framework */,
+				5F74C5171D0974290099D4D9 /* SpriteKit.framework */,
 				5F78B42D1CE6113700F191DA /* WebKit.framework */,
 				5F78B42B1CE6110400F191DA /* Social.framework */,
 				5F78B4291CE610ED00F191DA /* QuartzCore.framework */,
@@ -447,7 +633,9 @@
 				5F8BFDD71CA73C3A00F90C43 /* StoreKit.framework */,
 				5F8BFDCA1CA6B81C00F90C43 /* SystemConfiguration.framework */,
 				5F8BFDC81CA6B81600F90C43 /* GameKit.framework */,
-				A86360AF49FB2156EAFF0172 /* Pods_Number_Tap.framework */,
+				FF5260D03C4FECB64879062C /* Pods_Number_Tap.framework */,
+				FD1D5BED5C2B4EA3CB119CD7 /* Pods_Number_TapTests.framework */,
+				4220B69D29B2E7CBC0D979D2 /* Pods_Number_TapUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -459,15 +647,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5FDAF8651C94C15D009D815A /* Build configuration list for PBXNativeTarget "Number Tap" */;
 			buildPhases = (
-				93755D16375140B1C6F7E103 /* Check Pods Manifest.lock */,
+				C4167B40E0F36CB0916CD407 /* [CP] Check Pods Manifest.lock */,
 				5FDAF8351C94C15C009D815A /* Sources */,
 				5FDAF8371C94C15C009D815A /* Resources */,
-				1E05A2E683F908A8DAE4C1A5 /* Embed Pods Frameworks */,
-				4BF986F53CDCEBE50811B5EA /* Copy Pods Resources */,
 				5FDAF8361C94C15C009D815A /* Frameworks */,
 				5F57F69C1CA17DF8004FCA64 /* Embed Frameworks */,
 				5F1CC5431CB1601400488116 /* ShellScript */,
 				5F675A3F1CB851F700CF172C /* ShellScript */,
+				34254F9954DF54B4B5CCDB64 /* [CP] Embed Pods Frameworks */,
+				734D8E01B89AA492D0A2944C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -483,9 +671,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5FDAF8681C94C15D009D815A /* Build configuration list for PBXNativeTarget "Number TapTests" */;
 			buildPhases = (
+				3385DE10409BF023541FA29A /* [CP] Check Pods Manifest.lock */,
 				5FDAF84D1C94C15D009D815A /* Sources */,
 				5FDAF84E1C94C15D009D815A /* Frameworks */,
 				5FDAF84F1C94C15D009D815A /* Resources */,
+				A903E6733F0B1F8644985912 /* [CP] Embed Pods Frameworks */,
+				87AEBBA19E1F3AC408FBFA8F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -501,9 +692,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5FDAF86B1C94C15D009D815A /* Build configuration list for PBXNativeTarget "Number TapUITests" */;
 			buildPhases = (
+				5C53449B54167154DE14FB71 /* [CP] Check Pods Manifest.lock */,
 				5FDAF8581C94C15D009D815A /* Sources */,
 				5FDAF8591C94C15D009D815A /* Frameworks */,
 				5FDAF85A1C94C15D009D815A /* Resources */,
+				308861FB862CA340ECCEA12D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -554,6 +747,12 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
+				de,
+				es,
+				ja,
+				it,
+				ko,
 			);
 			mainGroup = 5FDAF8301C94C15C009D815A;
 			productRefGroup = 5FDAF83A1C94C15C009D815A /* Products */;
@@ -590,19 +789,23 @@
 			files = (
 				5FDAF83F1C94C15C009D815A /* GameScene.sks in Resources */,
 				5FC98C091CAB296F000ABDD0 /* AirshipResources.bundle in Resources */,
-				5F8BFDD11CA710C700F90C43 /* iphone5.jpg in Resources */,
+				5F0112511D26A668006765D8 /* GameModes.sks in Resources */,
 				5F57F69E1CA17E30004FCA64 /* AirshipConfig.plist in Resources */,
 				5FC98C011CAB21A7000ABDD0 /* blop01.wav in Resources */,
 				5F3368431CA98BEC00A2DE2C /* Montserrat-Light.otf in Resources */,
 				5F33683F1CA98BEC00A2DE2C /* Montserrat-Bold.otf in Resources */,
+				5F53C3271D19712A00675737 /* SKUtilities2.xcassets in Resources */,
+				5FC57DDB1D21AEC000202588 /* flatbox-text-icon.png in Resources */,
 				5F675A3E1CB82A9600CF172C /* blipBlop.wav in Resources */,
 				5FC98C021CAB21A7000ABDD0 /* blop02.wav in Resources */,
 				5F3368441CA98BEC00A2DE2C /* Montserrat-Regular.otf in Resources */,
 				5FF98C7C1CBAA4BE003B6893 /* Default-portrait@3x~iphone6+.png in Resources */,
+				5FC57DD91D21AEB100202588 /* lightblue.png in Resources */,
 				5F3368451CA98BEC00A2DE2C /* Montserrat-SemiBold.otf in Resources */,
 				5F3368421CA98BEC00A2DE2C /* Montserrat-Hairline.otf in Resources */,
 				5FDAF84B1C94C15C009D815A /* LaunchScreen.storyboard in Resources */,
 				5FF98C7A1CBAA4B2003B6893 /* Default-Landscape@2x~ipad.png in Resources */,
+				5F53C3661D1D826100675737 /* Localizable.strings in Resources */,
 				5FDAF8481C94C15C009D815A /* Assets.xcassets in Resources */,
 				5FDAF8461C94C15C009D815A /* Main.storyboard in Resources */,
 			);
@@ -612,6 +815,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F74C50A1D0972190099D4D9 /* blipBlop.wav in Resources */,
+				5F53C3671D1D826100675737 /* Localizable.strings in Resources */,
+				5F53C3281D19712A00675737 /* SKUtilities2.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,14 +831,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1E05A2E683F908A8DAE4C1A5 /* Embed Pods Frameworks */ = {
+		308861FB862CA340ECCEA12D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Number TapUITests/Pods-Number TapUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3385DE10409BF023541FA29A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		34254F9954DF54B4B5CCDB64 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -640,19 +876,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Number Tap/Pods-Number Tap-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4BF986F53CDCEBE50811B5EA /* Copy Pods Resources */ = {
+		5C53449B54167154DE14FB71 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Number Tap/Pods-Number Tap-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		5F1CC5431CB1601400488116 /* ShellScript */ = {
@@ -681,14 +917,59 @@
 			shellPath = /bin/bash;
 			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
 		};
-		93755D16375140B1C6F7E103 /* Check Pods Manifest.lock */ = {
+		734D8E01B89AA492D0A2944C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Number Tap/Pods-Number Tap-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		87AEBBA19E1F3AC408FBFA8F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Number TapTests/Pods-Number TapTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A903E6733F0B1F8644985912 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Number TapTests/Pods-Number TapTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C4167B40E0F36CB0916CD407 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -705,6 +986,7 @@
 			files = (
 				5FDAFA821CA8157E000CE82E /* Utilites.swift in Sources */,
 				5FDAFA7D1CA8157E000CE82E /* Constants.swift in Sources */,
+				5F2116D71D2BC20200501564 /* ShootMode.swift in Sources */,
 				5F229D431CAACD1700A4C014 /* AirshipKit in Sources */,
 				5FF98C821CBABF11003B6893 /* TCProgressTimerNode.m in Sources */,
 				5FDAF8411C94C15C009D815A /* GameScene.swift in Sources */,
@@ -712,15 +994,22 @@
 				5FF98C771CBA99A7003B6893 /* TCProgressBarNode.m in Sources */,
 				5FF98C7F1CBABEF8003B6893 /* TCProgressTimerForegroundCropNode.m in Sources */,
 				5F57F6A01CA1806D004FCA64 /* HomeScene.swift in Sources */,
+				5F2116D01D2BC16E00501564 /* BuildingModeScene.swift in Sources */,
 				5F229D441CAACD1900A4C014 /* Airship in Sources */,
 				5FC042261CA8801A00264482 /* GameKitHelper.swift in Sources */,
 				5FDAFA811CA8157E000CE82E /* ProgressNode.swift in Sources */,
+				5F53C3251D19712A00675737 /* SKUtilities2.m in Sources */,
 				5FDAFA851CA81646000CE82E /* AnimatedScoreLabel.m in Sources */,
 				5FDAF8431C94C15C009D815A /* GameViewController.swift in Sources */,
+				5F2116D31D2BC16F00501564 /* TutorialScene.swift in Sources */,
+				5F2116D91D2BC45F00501564 /* GameMode.swift in Sources */,
 				5FDAFA801CA8157E000CE82E /* NumberBox.swift in Sources */,
+				5F2116D21D2BC16F00501564 /* FallingMode.swift in Sources */,
 				5FDAFA7E1CA8157E000CE82E /* IAPHelper.swift in Sources */,
 				5FDAF83D1C94C15C009D815A /* AppDelegate.swift in Sources */,
-				5FDAFA7F1CA8157E000CE82E /* NTProgressBar.swift in Sources */,
+				5FDAFA7F1CA8157E000CE82E /* Ribbon.swift in Sources */,
+				5F2116D11D2BC16F00501564 /* BuildUpScene.swift in Sources */,
+				5F74C5121D0972960099D4D9 /* FTLogging.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -728,7 +1017,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FDAF8561C94C15D009D815A /* Number_TapTests.swift in Sources */,
+				5F74C51D1D09750B0099D4D9 /* ProgressNode.swift in Sources */,
+				5F74C51C1D0975070099D4D9 /* NumberBox.swift in Sources */,
+				5F74C5201D0975200099D4D9 /* TCProgressTimerForegroundCropNode.m in Sources */,
+				5F74C5211D0975230099D4D9 /* TCProgressTimerNode.m in Sources */,
+				5F74C5131D0972960099D4D9 /* FTLogging.swift in Sources */,
+				5F74C50B1D0972240099D4D9 /* GameKitHelper.swift in Sources */,
+				5F74C51B1D0975040099D4D9 /* Ribbon.swift in Sources */,
+				5F53C3261D19712A00675737 /* SKUtilities2.m in Sources */,
+				5F74C5041D09700E0099D4D9 /* HomeScene.swift in Sources */,
+				5F74C51A1D0974CA0099D4D9 /* GameScene.swift in Sources */,
+				5F74C5031D0970080099D4D9 /* GameViewController.swift in Sources */,
+				5F74C51E1D09751A0099D4D9 /* AnimatedScoreLabel.m in Sources */,
+				5F74C51F1D09751D0099D4D9 /* TCProgressBarNode.m in Sources */,
+				5F74C5161D0973930099D4D9 /* IAPHelper.swift in Sources */,
+				5FDAF8561C94C15D009D815A /* NumberTapTests.swift in Sources */,
+				5F74C5141D0972B60099D4D9 /* Constants.swift in Sources */,
+				5F74C5151D09734B0099D4D9 /* Utilites.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -736,7 +1041,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FDAF8611C94C15D009D815A /* Number_TapUITests.swift in Sources */,
+				5FDAF8611C94C15D009D815A /* NumberTapUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -761,10 +1066,31 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5F53C3691D1D826100675737 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5F53C36B1D1D827500675737 /* en */,
+				5F10A4541D1DAE24008E86C3 /* Base */,
+				5F10A4661D1DD4D0008E86C3 /* fr */,
+				5F10A4671D1DD4D9008E86C3 /* de */,
+				5F10A4681D1DD4DA008E86C3 /* es */,
+				5F10A4691D1DD4DC008E86C3 /* ja */,
+				5F10A46A1D1DD4DD008E86C3 /* it */,
+				5F10A46B1D1DD4DE008E86C3 /* ko */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		5FDAF8441C94C15C009D815A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				5FDAF8451C94C15C009D815A /* Base */,
+				5F10A4551D1DD463008E86C3 /* fr */,
+				5F10A4581D1DD46B008E86C3 /* de */,
+				5F10A45A1D1DD474008E86C3 /* es */,
+				5F10A45D1D1DD47C008E86C3 /* ja */,
+				5F10A4601D1DD481008E86C3 /* it */,
+				5F10A4631D1DD485008E86C3 /* ko */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -773,6 +1099,13 @@
 			isa = PBXVariantGroup;
 			children = (
 				5FDAF84A1C94C15C009D815A /* Base */,
+				5F10A4561D1DD463008E86C3 /* fr */,
+				5F10A4591D1DD46B008E86C3 /* de */,
+				5F10A45B1D1DD474008E86C3 /* es */,
+				5F10A45E1D1DD47C008E86C3 /* ja */,
+				5F10A4611D1DD481008E86C3 /* it */,
+				5F10A4641D1DD485008E86C3 /* ko */,
+				5FC57DD71D1FFC4500202588 /* en */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -869,13 +1202,14 @@
 		};
 		5FDAF8661C94C15D009D815A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 441A032841553DD3FAE27A0D /* Pods-Number Tap.debug.xcconfig */;
+			baseConfigurationReference = D07EFBA83884085B74D9E067 /* Pods-Number Tap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				BUNDLE_LOADER = "";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COMPRESS_PNG_FILES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)",
 					"$(inherited)",
@@ -885,7 +1219,53 @@
 					Tap,
 					"$(PROJECT_DIR)/Number",
 					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
 				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Number Tap/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -894,66 +1274,28 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Airship",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-					"-l\"c++\"",
-					"-l\"z\"",
-					"-framework",
-					"\"AVFoundation\"",
-					"-framework",
-					"\"Appirater\"",
-					"-framework",
-					"\"AudioToolbox\"",
-					"-framework",
-					"\"CoreGraphics\"",
-					"-framework",
-					"\"CoreMedia\"",
-					"-framework",
-					"\"CoreTelephony\"",
-					"-framework",
-					"\"Crashlytics\"",
-					"-framework",
-					"\"EventKit\"",
-					"-framework",
-					"\"EventKitUI\"",
-					"-framework",
-					"\"Fabric\"",
-					"-framework",
-					"\"MediaPlayer\"",
-					"-framework",
-					"\"MessageUI\"",
-					"-framework",
-					"\"PermissionScope\"",
-					"-framework",
-					"\"Security\"",
-					"-framework",
-					"\"StoreKit\"",
-					"-framework",
-					"\"SystemConfiguration\"",
-					"-framework",
-					"\"UIKit\"",
-					"-weak_framework",
-					"\"AdSupport\"",
-					"-fobjc-arc",
-				);
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flatboxstudio.numbertap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "58db3d8f-8267-4657-889e-036cea305fd1";
 				SWIFT_OBJC_BRIDGING_HEADER = "Number Tap-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
 		5FDAF8671C94C15D009D815A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD0A65B0B7CC8D37B25581AE /* Pods-Number Tap.release.xcconfig */;
+			baseConfigurationReference = D8D394F70C0857B3827858D6 /* Pods-Number Tap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				BUNDLE_LOADER = "";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				COMPRESS_PNG_FILES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)",
 					"$(inherited)",
@@ -963,7 +1305,53 @@
 					Tap,
 					"$(PROJECT_DIR)/Number",
 					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
+					"$(PROJECT_DIR)/Number",
+					Tap,
 				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Number Tap/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -972,83 +1360,61 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Airship",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-					"-l\"c++\"",
-					"-l\"z\"",
-					"-framework",
-					"\"AVFoundation\"",
-					"-framework",
-					"\"Appirater\"",
-					"-framework",
-					"\"AudioToolbox\"",
-					"-framework",
-					"\"CoreGraphics\"",
-					"-framework",
-					"\"CoreMedia\"",
-					"-framework",
-					"\"CoreTelephony\"",
-					"-framework",
-					"\"Crashlytics\"",
-					"-framework",
-					"\"EventKit\"",
-					"-framework",
-					"\"EventKitUI\"",
-					"-framework",
-					"\"Fabric\"",
-					"-framework",
-					"\"MediaPlayer\"",
-					"-framework",
-					"\"MessageUI\"",
-					"-framework",
-					"\"PermissionScope\"",
-					"-framework",
-					"\"Security\"",
-					"-framework",
-					"\"StoreKit\"",
-					"-framework",
-					"\"SystemConfiguration\"",
-					"-framework",
-					"\"UIKit\"",
-					"-weak_framework",
-					"\"AdSupport\"",
-					"-fobjc-arc",
-				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flatboxstudio.numbertap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "684f8e80-cef4-4131-be65-069736e9e3bf";
 				SWIFT_OBJC_BRIDGING_HEADER = "Number Tap-Bridging-Header.h";
+				VALIDATE_PRODUCT = NO;
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
 		};
 		5FDAF8691C94C15D009D815A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD61C09A2F75683679353289 /* Pods-Number TapTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Number",
+					Tap,
+				);
 				INFOPLIST_FILE = "Number TapTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.flatboxstudio.jesseono.Number-TapTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Number Tap-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Number Tap.app/Number Tap";
 			};
 			name = Debug;
 		};
 		5FDAF86A1C94C15D009D815A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3BBFA3F11DC58D6CB5AD310C /* Pods-Number TapTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Number",
+					Tap,
+				);
 				INFOPLIST_FILE = "Number TapTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.flatboxstudio.jesseono.Number-TapTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Number Tap-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Number Tap.app/Number Tap";
 			};
 			name = Release;
 		};
 		5FDAF86C1C94C15D009D815A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDD80EB3EC4A4ECD771D7423 /* Pods-Number TapUITests.debug.xcconfig */;
 			buildSettings = {
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				INFOPLIST_FILE = "Number TapUITests/Info.plist";
@@ -1061,6 +1427,7 @@
 		};
 		5FDAF86D1C94C15D009D815A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 458630DDBA5D153C768AA4B7 /* Pods-Number TapUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "Number TapUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
